@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio fuer Mechatronik, Robotik, Automatisierung und technische Entwicklung.">
+  <title>Engineering & Robotics Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Hauptnavigation">
+      <a class="brand" href="#home" aria-label="Zur Startseite">
+        <span class="brand-mark">J</span>
+        <span class="brand-text">Engineering Portfolio</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Menue oeffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#about">Ueber mich</a></li>
+        <li><a href="#projects">Projekte</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Mechatronik & Robotik Portfolio</p>
+          <h1>Jonas</h1>
+          <p class="hero-lead">
+            Mechatronik- und Robotik-Ingenieur mit Fokus auf Robot Control,
+            mechanische Entwicklung, Embedded Systems und praxisnahe Automatisierung.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Projekte ansehen</a>
+            <a class="btn btn-secondary" href="#contact">Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Technische Portfolio Visualisierung">
+          <div class="tech-panel">
+            <div class="panel-header">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="robot-diagram">
+              <div class="axis axis-x"></div>
+              <div class="axis axis-y"></div>
+              <div class="node node-base"></div>
+              <div class="node node-joint"></div>
+              <div class="node node-tool"></div>
+              <div class="link link-one"></div>
+              <div class="link link-two"></div>
+              <div class="scan-line"></div>
+            </div>
+            <div class="panel-metrics">
+              <div>
+                <span class="metric-label">Focus</span>
+                <strong>Robotics</strong>
+              </div>
+              <div>
+                <span class="metric-label">Stack</span>
+                <strong>CAD / Control / Code</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Profil</p>
+        <h2>Interdisziplinaere Entwicklung zwischen Mechanik, Elektronik und Software.</h2>
+      </div>
+      <div class="about-grid">
+        <article class="about-card reveal">
+          <h3>Ueber mich</h3>
+          <p>
+            Ich entwickle technische Systeme an der Schnittstelle von Mechatronik,
+            Robotik und praktischer Umsetzung. Meine Arbeit verbindet mechanisches
+            Design, Sensorik, Aktorik, Regelungstechnik und softwarebasierte Steuerung.
+          </p>
+        </article>
+        <article class="about-card reveal">
+          <h3>Engineering Ansatz</h3>
+          <p>
+            Vom Konzept ueber Prototyping bis zur Validierung denke ich Systeme ganzheitlich:
+            robust, wartbar, dokumentierbar und mit Blick auf reale Randbedingungen im Labor
+            oder in der Anwendung.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section skills-band" aria-label="Technische Schwerpunkte">
+      <div class="skills-track reveal">
+        <span>Robot Control</span>
+        <span>Mechatronics</span>
+        <span>CAD Design</span>
+        <span>Embedded Systems</span>
+        <span>Motion Planning</span>
+        <span>Sensor Integration</span>
+        <span>Automation</span>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Auswahl</p>
+        <h2>Projektkarten fuer Robotik, Steuerung und technische Prototypen.</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <div class="project-media media-scara"></div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>Robot Design</span>
+              <span>In Progress</span>
+            </div>
+            <h3>Parallel SCARA Robot</h3>
+            <p>Platzhalter fuer Konstruktion, Kinematik, Prototyping und Steuerung eines parallelen SCARA-Roboters.</p>
+            <div class="tag-list">
+              <span>CAD</span>
+              <span>Kinematics</span>
+              <span>Control</span>
+            </div>
+            <a class="text-link" href="#" aria-label="Details zum Parallel SCARA Robot Projekt folgen">Details folgen</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-media media-kuka"></div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>Industrial Robotics</span>
+              <span>Placeholder</span>
+            </div>
+            <h3>KUKA Robot Control</h3>
+            <p>Platzhalter fuer Robotersteuerung, Bahnplanung, Schnittstellen und experimentelle Validierung.</p>
+            <div class="tag-list">
+              <span>KUKA</span>
+              <span>Automation</span>
+              <span>Path Control</span>
+            </div>
+            <a class="text-link" href="#" aria-label="Details zum KUKA Robot Control Projekt folgen">Details folgen</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-media media-tactile"></div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>Sensing</span>
+              <span>Research</span>
+            </div>
+            <h3>Tactile Sensing Skin</h3>
+            <p>Platzhalter fuer taktile Sensorhaut, Signalverarbeitung, Materialaufbau und Robotik-Integration.</p>
+            <div class="tag-list">
+              <span>Sensors</span>
+              <span>Data</span>
+              <span>Prototyping</span>
+            </div>
+            <a class="text-link" href="#" aria-label="Details zum Tactile Sensing Skin Projekt folgen">Details folgen</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-media media-motion"></div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>Algorithms</span>
+              <span>Expandable</span>
+            </div>
+            <h3>Motion Planning / Robotics</h3>
+            <p>Platzhalter fuer Pfadplanung, Trajektorien, Simulation und Erweiterung mit Visualisierungen.</p>
+            <div class="tag-list">
+              <span>Planning</span>
+              <span>Simulation</span>
+              <span>JavaScript</span>
+            </div>
+            <a class="text-link" href="#" aria-label="Details zum Motion Planning Projekt folgen">Details folgen</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cv" id="cv">
+      <div class="cv-panel reveal">
+        <div>
+          <p class="eyebrow">Lebenslauf</p>
+          <h2>CV und technische Kurzuebersicht.</h2>
+          <p>
+            Hier kann spaeter ein PDF-Lebenslauf hinterlegt werden. Der Bereich ist vorbereitet
+            fuer Download, Zertifikate oder eine kompakte Timeline.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="assets/Jonas-CV.pdf" aria-label="Lebenslauf als PDF herunterladen">CV herunterladen</a>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Bereit fuer Austausch zu Robotik, Automatisierung und Engineering Rollen.</h2>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-item reveal" href="mailto:jonas@example.com">
+          <span>Email</span>
+          <strong>jonas@example.com</strong>
+        </a>
+        <a class="contact-item reveal" href="#" aria-label="LinkedIn Profil spaeter ergaenzen">
+          <span>LinkedIn</span>
+          <strong>Profil spaeter ergaenzen</strong>
+        </a>
+        <a class="contact-item reveal" href="#" aria-label="GitHub Profil spaeter ergaenzen">
+          <span>GitHub</span>
+          <strong>Repositorys spaeter ergaenzen</strong>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Jonas. Engineering & Robotics Portfolio.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
