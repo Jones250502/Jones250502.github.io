@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio fuer Mechatronik, Robotik, Automatisierung und technische Entwicklung.">
-  <title>Engineering & Robotics Portfolio</title>
+  <meta name="description" content="">
+  <title></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <header class="site-header">
-    <nav class="navbar" aria-label="Hauptnavigation">
-      <a class="brand" href="#home" aria-label="Zur Startseite">
-        <span class="brand-mark">J</span>
-        <span class="brand-text">Engineering Portfolio</span>
+    <nav class="navbar" aria-label="" data-i18n-attr="aria-label:nav.label">
+      <a class="brand" href="#home" aria-label="" data-i18n-attr="aria-label:brand.homeLabel">
+        <span class="brand-mark" data-i18n="brand.mark"></span>
+        <span class="brand-text" data-i18n="brand.text"></span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-label="Menue oeffnen" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <ul class="nav-links" data-nav-list></ul>
 
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">Ueber mich</a></li>
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#projects">Projekte</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
+      <div class="nav-controls">
+        <button class="language-toggle" type="button" data-language-toggle aria-label="" data-i18n-attr="aria-label:language.label">
+          <span class="language-option" data-lang-option="de">DE</span>
+          <span class="language-divider" aria-hidden="true">|</span>
+          <span class="language-option" data-lang-option="en">EN</span>
+        </button>
+        <button class="nav-toggle" type="button" aria-label="" aria-expanded="false" data-i18n-attr="aria-label:nav.menuLabel">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -43,245 +43,82 @@
 
       <div class="hero-inner">
         <div class="hero-content reveal">
-          <p class="hero-kicker">Hi, I'm</p>
-          <h1>Jonas Fritsch</h1>
-          <p class="hero-degree">M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM</p>
-          <p class="hero-focus">Robotics &bull; Automation &bull; Prototyping &bull; Control Systems</p>
+          <p class="hero-kicker" data-i18n="hero.kicker"></p>
+          <h1 data-i18n="hero.name"></h1>
+          <p class="hero-degree" data-i18n="hero.degree"></p>
+          <p class="hero-focus" data-i18n="hero.focus"></p>
 
-          <div class="hero-actions" aria-label="Hero Navigation">
-            <a class="btn btn-primary" href="#projects">Projects</a>
-            <a class="btn btn-secondary" href="#cv">CV</a>
-            <a class="btn btn-ghost" href="#contact">Contact</a>
-          </div>
+          <div class="hero-actions" aria-label="" data-hero-actions data-i18n-attr="aria-label:hero.actionsLabel"></div>
         </div>
       </div>
     </section>
 
     <section class="section about section-split" id="about">
       <div class="section-heading reveal">
-        <p class="eyebrow">Ueber mich</p>
-        <h2>Engineering zwischen Robotik, Automatisierung und praktischer Entwicklung.</h2>
+        <p class="eyebrow" data-i18n="about.eyebrow"></p>
+        <h2 data-i18n="about.heading"></h2>
       </div>
       <div class="about-grid">
         <article class="about-card about-card-main reveal">
-          <h3>Hands on Robotics Engineering</h3>
-          <p>
-            Ich interessiere mich fuer Robotik, Automatisierung und technische Systeme,
-            die nicht nur theoretisch funktionieren, sondern als Prototyp, Versuchsaufbau
-            oder Maschine real greifbar werden. Besonders spannend ist fuer mich die
-            Verbindung aus Mechanik, Elektronik und Software.
-          </p>
-          <p>
-            Mein Fokus liegt auf interdisziplinaerer Entwicklung: Anforderungen verstehen,
-            Konzepte ableiten, Hardware aufbauen, Steuerung implementieren und technische
-            Entscheidungen durch Tests sichtbar machen.
-          </p>
+          <h3 data-i18n="about.cardTitle"></h3>
+          <div data-about-text></div>
         </article>
-        <div class="about-visual reveal" aria-label="Engineering Schwerpunkte">
-          <div class="visual-grid">
-            <span>Mechanics</span>
-            <span>Control</span>
-            <span>Electronics</span>
-            <span>Software</span>
-          </div>
+        <div class="about-visual reveal" aria-label="" data-i18n-attr="aria-label:about.visualLabel">
+          <div class="visual-grid" data-about-pillars></div>
         </div>
       </div>
     </section>
 
-    <section class="section skills-band" aria-label="Technische Schwerpunkte">
-      <div class="skills-track reveal">
-        <span>Robot Control</span>
-        <span>Mechatronics</span>
-        <span>CAD Design</span>
-        <span>Embedded Systems</span>
-        <span>Motion Planning</span>
-        <span>Sensor Integration</span>
-        <span>Automation</span>
-      </div>
+    <section class="section skills-band" aria-label="" data-i18n-attr="aria-label:skills.label">
+      <div class="skills-track reveal" data-skills-list></div>
     </section>
 
     <section class="section journey" id="journey">
       <div class="section-heading reveal">
-        <p class="eyebrow">Bildung & Journey</p>
-        <h2>Akademische Entwicklung mit technischem Schwerpunkt und internationaler Perspektive.</h2>
+        <p class="eyebrow" data-i18n="journey.eyebrow"></p>
+        <h2 data-i18n="journey.heading"></h2>
       </div>
 
-      <div class="journey-track">
-        <article class="journey-card reveal">
-          <span class="journey-logo">KIT</span>
-          <div>
-            <p class="journey-label">Bachelor</p>
-            <h3>KIT</h3>
-            <p>Bachelor Maschinenbau mit technischer Grundlage in Konstruktion, Mechanik und ingenieurwissenschaftlichem Denken.</p>
-          </div>
-        </article>
-
-        <article class="journey-card reveal">
-          <span class="journey-logo">TUM</span>
-          <div>
-            <p class="journey-label">Master</p>
-            <h3>TUM</h3>
-            <p>M.Sc. Mechatronics, Robotics and Biomechanical Engineering mit Fokus auf Robotik, Systeme und Regelung.</p>
-          </div>
-        </article>
-
-        <article class="journey-card reveal">
-          <span class="journey-logo">UPC</span>
-          <div>
-            <p class="journey-label">International</p>
-            <h3>UPC Barcelona</h3>
-            <p>Auslandssemester mit internationaler Erfahrung, neuen technischen Perspektiven und akademischem Austausch.</p>
-          </div>
-        </article>
-      </div>
+      <div class="journey-track" data-journey-list></div>
     </section>
 
     <section class="section projects" id="projects">
       <div class="section-heading reveal">
-        <p class="eyebrow">Projekte</p>
-        <h2>Ein gemeinsames Portfolio aus Robotik, Prototyping, Steuerung und Forschung.</h2>
+        <p class="eyebrow" data-i18n="projects.eyebrow"></p>
+        <h2 data-i18n="projects.heading"></h2>
       </div>
 
-      <div class="project-grid">
-        <article class="project-card reveal">
-          <div class="project-media media-scara"></div>
-          <div class="project-content">
-            <div class="project-topline">
-              <span>Robot Design</span>
-              <span class="category-tag">Eigenprojekt</span>
-            </div>
-            <h3>Parallel SCARA Robot</h3>
-            <p>Konstruktion, Kinematik, Prototyping und Steuerung eines parallelen SCARA-Roboters als eigenstaendiges Robotikprojekt.</p>
-            <div class="tag-list">
-              <span>CAD</span>
-              <span>Kinematics</span>
-              <span>Control</span>
-            </div>
-            <a class="text-link" href="#" aria-label="Details zum Parallel SCARA Robot Projekt folgen">Details folgen</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-media media-kuka"></div>
-          <div class="project-content">
-            <div class="project-topline">
-              <span>Industrial Robotics</span>
-              <span class="category-tag">Bachelorarbeit</span>
-            </div>
-            <h3>KUKA External Control</h3>
-            <p>Externe Robotersteuerung, Schnittstellen, Bahnplanung und experimentelle Validierung an einem Industrieroboter.</p>
-            <div class="tag-list">
-              <span>KUKA</span>
-              <span>Automation</span>
-              <span>Path Control</span>
-            </div>
-            <a class="text-link" href="#" aria-label="Details zum KUKA Robot Control Projekt folgen">Details folgen</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-media media-tactile"></div>
-          <div class="project-content">
-            <div class="project-topline">
-              <span>Sensing</span>
-              <span class="category-tag">Universitaet</span>
-            </div>
-            <h3>Tactile Sensing Skin</h3>
-            <p>Taktile Sensorhaut als universitärer Prototyp mit Fokus auf Sensorintegration, Signalverarbeitung und Robotik-Anwendung.</p>
-            <div class="tag-list">
-              <span>Sensors</span>
-              <span>Data</span>
-              <span>Prototyping</span>
-            </div>
-            <a class="text-link" href="#" aria-label="Details zum Tactile Sensing Skin Projekt folgen">Details folgen</a>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-media media-motion"></div>
-          <div class="project-content">
-            <div class="project-topline">
-              <span>Algorithms</span>
-              <span class="category-tag">Universitaet</span>
-            </div>
-            <h3>Motion Planning / Robotics</h3>
-            <p>Platzhalter fuer Pfadplanung, Trajektorien, Simulation und spaetere Erweiterung mit interaktiven Visualisierungen.</p>
-            <div class="tag-list">
-              <span>Planning</span>
-              <span>Simulation</span>
-              <span>JavaScript</span>
-            </div>
-            <a class="text-link" href="#" aria-label="Details zum Motion Planning Projekt folgen">Details folgen</a>
-          </div>
-        </article>
-
-        <article class="project-card project-card-feature reveal">
-          <div class="project-media media-thesis"></div>
-          <div class="project-content">
-            <div class="project-topline">
-              <span>Research</span>
-              <span class="category-tag">Forschung</span>
-            </div>
-            <h3>Masterarbeit</h3>
-            <p>Platzhalter fuer ein forschungsorientiertes Masterarbeitsprojekt mit Robotik-, Mechatronik- oder Biomechanik-Bezug.</p>
-            <div class="tag-list">
-              <span>Research</span>
-              <span>Robotics</span>
-              <span>Validation</span>
-            </div>
-            <a class="text-link" href="#" aria-label="Details zur Masterarbeit folgen">Details folgen</a>
-          </div>
-        </article>
-      </div>
+      <div class="project-grid" data-project-list></div>
     </section>
 
     <section class="section cv" id="cv">
       <div class="cv-panel reveal">
         <div>
-          <p class="eyebrow">Lebenslauf</p>
-          <h2>Kompakte Resume Vorschau und PDF Download.</h2>
-          <p>
-            Platzhalter fuer technische Schwerpunkte, relevante Stationen, Tools,
-            Programmiersprachen, CAD-Umgebungen und Robotik-Erfahrung.
-          </p>
+          <p class="eyebrow" data-i18n="cv.eyebrow"></p>
+          <h2 data-i18n="cv.heading"></h2>
+          <p data-i18n="cv.text"></p>
         </div>
         <div class="cv-actions">
-          <div class="resume-preview">
-            <span>Robotics</span>
-            <span>Automation</span>
-            <span>Prototyping</span>
-          </div>
-          <a class="btn btn-primary" href="assets/Jonas-CV.pdf" aria-label="Lebenslauf als PDF herunterladen">CV herunterladen</a>
+          <div class="resume-preview" data-cv-tags></div>
+          <a class="btn btn-primary" href="assets/Jonas-CV.pdf" aria-label="" data-i18n="cv.downloadLabel" data-i18n-attr="aria-label:cv.downloadAria"></a>
         </div>
       </div>
     </section>
 
     <section class="section contact" id="contact">
       <div class="section-heading reveal">
-        <p class="eyebrow">Kontakt</p>
-        <h2>Bereit fuer Austausch zu Robotik, Automatisierung und Engineering Rollen.</h2>
+        <p class="eyebrow" data-i18n="contact.eyebrow"></p>
+        <h2 data-i18n="contact.heading"></h2>
       </div>
-      <div class="contact-grid">
-        <a class="contact-item reveal" href="mailto:jonas@example.com">
-          <span>Email</span>
-          <strong>jonas@example.com</strong>
-        </a>
-        <a class="contact-item reveal" href="#" aria-label="LinkedIn Profil spaeter ergaenzen">
-          <span>LinkedIn</span>
-          <strong>Profil spaeter ergaenzen</strong>
-        </a>
-        <a class="contact-item reveal" href="#" aria-label="GitHub Profil spaeter ergaenzen">
-          <span>GitHub</span>
-          <strong>Repositorys spaeter ergaenzen</strong>
-        </a>
-      </div>
+      <div class="contact-grid" data-contact-list></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Jonas Fritsch. Engineering & Robotics Portfolio.</p>
+    <p data-footer-text></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="content.js?v=1"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

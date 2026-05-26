@@ -90,6 +90,41 @@ a {
   letter-spacing: 0;
 }
 
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 76px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid rgba(214, 169, 95, 0.34);
+  border-radius: var(--radius);
+  color: rgba(238, 246, 247, 0.48);
+  background: rgba(214, 169, 95, 0.08);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.language-option {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.language-option.is-active {
+  color: var(--accent);
+}
+
+.language-divider {
+  color: rgba(238, 246, 247, 0.28);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -559,24 +594,8 @@ h3 {
   font-weight: 800;
 }
 
-.media-scara::after {
-  content: "SCARA Robot Media";
-}
-
-.media-kuka::after {
-  content: "KUKA Control Media";
-}
-
-.media-tactile::after {
-  content: "Tactile Sensor Media";
-}
-
-.media-motion::after {
-  content: "Motion Planning Media";
-}
-
-.media-thesis::after {
-  content: "Master Thesis Media";
+.project-media::after {
+  content: attr(data-media-label);
 }
 
 .project-content {

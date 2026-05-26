@@ -1,15 +1,136 @@
+let currentLanguage = "de";
+let revealObserver;
+let sectionObserver;
+
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
-const navItems = document.querySelectorAll(".nav-links a");
-const revealElements = document.querySelectorAll(".reveal");
-const sections = document.querySelectorAll("main section[id]");
+const languageToggle = document.querySelector("[data-language-toggle]");
 
-document.getElementById("year").textContent = new Date().getFullYear();
+function getContentValue(path, content = window.siteContent[currentLanguage]) {
+  return path.split(".").reduce((value, key) => (value ? value[key] : undefined), content);
+}
 
-// Keep the header readable once it overlays content during scroll.
-function updateHeaderState() {
-  header.classList.toggle("scrolled", window.scrollY > 24);
+function setText(selector, text) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.textContent = text;
+  }
+}
+
+function applyStaticText(content) {
+  document.documentElement.lang = currentLanguage;
+  document.title = content.meta.title;
+  document.querySelector('meta[name="description"]').setAttribute("content", content.meta.description);
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = getContentValue(element.dataset.i18n, content);
+    element.textContent = value || "";
+  });
+
+  document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+    element.dataset.i18nAttr.split(",").forEach((mapping) => {
+      const [attribute, path] = mapping.split(":");
+      const value = getContentValue(path, content);
+      if (attribute && value) {
+        element.setAttribute(attribute.trim(), value);
+      }
+    });
+  });
+}
+
+function renderNavigation(content) {
+  navLinks.innerHTML = content.nav.items
+    .map((item) => `<li><a href="${item.href}">${item.label}</a></li>`)
+    .join("");
+}
+
+function renderHeroActions(content) {
+  const container = document.querySelector("[data-hero-actions]");
+  container.innerHTML = content.hero.buttons
+    .map((button) => `<a class="btn btn-${button.style}" href="${button.href}">${button.label}</a>`)
+    .join("");
+}
+
+function renderAbout(content) {
+  document.querySelector("[data-about-text]").innerHTML = content.about.paragraphs
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join("");
+
+  document.querySelector("[data-about-pillars]").innerHTML = content.about.pillars
+    .map((pillar) => `<span>${pillar}</span>`)
+    .join("");
+}
+
+function renderSkills(content) {
+  document.querySelector("[data-skills-list]").innerHTML = content.skills.items
+    .map((skill) => `<span>${skill}</span>`)
+    .join("");
+}
+
+function renderJourney(content) {
+  document.querySelector("[data-journey-list]").innerHTML = content.journey.entries
+    .map((entry) => `
+      <article class="journey-card reveal">
+        <span class="journey-logo">${entry.logo}</span>
+        <div>
+          <p class="journey-label">${entry.label}</p>
+          <h3>${entry.title}</h3>
+          <p>${entry.text}</p>
+        </div>
+      </article>
+    `)
+    .join("");
+}
+
+function renderProjects(content) {
+  document.querySelector("[data-project-list]").innerHTML = content.projects.cards
+    .map((project) => `
+      <article class="project-card ${project.featured ? "project-card-feature" : ""} reveal">
+        <div class="project-media ${project.mediaClass || ""}" data-media-label="${project.mediaLabel}"></div>
+        <div class="project-content">
+          <div class="project-topline">
+            <span>${project.type}</span>
+            <span class="category-tag">${project.category}</span>
+          </div>
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <div class="tag-list">
+            ${project.technologies.map((technology) => `<span>${technology}</span>`).join("")}
+          </div>
+          <a class="text-link" href="${project.href}" aria-label="${project.linkLabel}">${content.projects.detailLabel}</a>
+        </div>
+      </article>
+    `)
+    .join("");
+}
+
+function renderCv(content) {
+  document.querySelector("[data-cv-tags]").innerHTML = content.cv.tags
+    .map((tag) => `<span>${tag}</span>`)
+    .join("");
+}
+
+function renderContact(content) {
+  document.querySelector("[data-contact-list]").innerHTML = content.contact.items
+    .map((item) => `
+      <a class="contact-item reveal" href="${item.href}" aria-label="${item.ariaLabel || `${item.label}: ${item.value}`}">
+        <span>${item.label}</span>
+        <strong>${item.value}</strong>
+      </a>
+    `)
+    .join("");
+}
+
+function renderFooter(content) {
+  const year = new Date().getFullYear();
+  setText("[data-footer-text]", `${String.fromCharCode(169)} ${year} ${content.footer.text}`);
+}
+
+function updateLanguageToggle() {
+  document.querySelectorAll("[data-lang-option]").forEach((option) => {
+    option.classList.toggle("is-active", option.dataset.langOption === currentLanguage);
+  });
 }
 
 function closeMobileNav() {
@@ -19,6 +140,85 @@ function closeMobileNav() {
   document.body.classList.remove("nav-open");
 }
 
+function updateHeaderState() {
+  header.classList.toggle("scrolled", window.scrollY > 24);
+}
+
+function initRevealObserver() {
+  if (revealObserver) {
+    revealObserver.disconnect();
+  }
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.16 }
+  );
+
+  document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+}
+
+function initSectionObserver() {
+  if (sectionObserver) {
+    sectionObserver.disconnect();
+  }
+
+  const navItems = document.querySelectorAll(".nav-links a");
+  sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        navItems.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    },
+    { rootMargin: "-35% 0px -55% 0px" }
+  );
+
+  document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+}
+
+function bindNavigationLinks() {
+  document.querySelectorAll(".nav-links a, .hero-actions a").forEach((link) => {
+    link.addEventListener("click", closeMobileNav);
+  });
+}
+
+function setLanguage(lang) {
+  if (!window.siteContent[lang]) {
+    return;
+  }
+
+  currentLanguage = lang;
+  const content = window.siteContent[currentLanguage];
+
+  applyStaticText(content);
+  renderNavigation(content);
+  renderHeroActions(content);
+  renderAbout(content);
+  renderSkills(content);
+  renderJourney(content);
+  renderProjects(content);
+  renderCv(content);
+  renderContact(content);
+  renderFooter(content);
+  updateLanguageToggle();
+  bindNavigationLinks();
+  initRevealObserver();
+  initSectionObserver();
+  updateHeaderState();
+}
+
 navToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("is-open");
   navToggle.classList.toggle("is-active", isOpen);
@@ -26,41 +226,10 @@ navToggle.addEventListener("click", () => {
   document.body.classList.toggle("nav-open", isOpen);
 });
 
-navItems.forEach((link) => {
-  link.addEventListener("click", closeMobileNav);
+languageToggle.addEventListener("click", () => {
+  setLanguage(currentLanguage === "de" ? "en" : "de");
 });
 
-// Reveal sections progressively without making the static page depend on a framework.
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.16 }
-);
-
-revealElements.forEach((element) => revealObserver.observe(element));
-
-// Highlight the navigation item for the section currently in view.
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      navItems.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-      });
-    });
-  },
-  { rootMargin: "-35% 0px -55% 0px" }
-);
-
-sections.forEach((section) => sectionObserver.observe(section));
 window.addEventListener("scroll", updateHeaderState, { passive: true });
-updateHeaderState();
+window.setLanguage = setLanguage;
+setLanguage(currentLanguage);
