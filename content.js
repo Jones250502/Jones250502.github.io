@@ -162,7 +162,7 @@ const siteContent = {
       kicker: "Lebenslauf",
       title: "Lebenslauf",
       subtitle: "Ausbildung, technische Schwerpunkte und Engineering Erfahrung im Überblick.",
-      pdfPath: "assets/documents/cv-jonas-fritsch.pdf",
+      pdfPath: "assets/documents/CV_Jonas_Lato.pdf",
       buttons: {
         view: "CV ansehen",
         download: "CV herunterladen"
@@ -365,7 +365,7 @@ const siteContent = {
       kicker: "Resume",
       title: "Resume",
       subtitle: "Education, technical focus areas and engineering experience at a glance.",
-      pdfPath: "assets/documents/cv-jonas-fritsch.pdf",
+      pdfPath: "assets/documents/CV_Jonas_light_en.pdf",
       buttons: {
         view: "View CV",
         download: "Download CV"
