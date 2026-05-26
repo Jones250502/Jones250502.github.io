@@ -115,14 +115,29 @@ function renderJourney(content) {
     .join("");
 }
 
+function getProjectInitials(title) {
+  return title
+    .replace(/[^a-zA-Z0-9äöüÄÖÜß ]/g, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+}
+
 function renderProjects(content) {
   document.querySelector("[data-project-list]").innerHTML = content.projects.cards
     .map((project) => `
-      <article class="project-card ${project.featured ? "project-card-feature" : ""} reveal">
-        <div class="project-media ${project.mediaClass || ""}" data-media-label="${project.mediaLabel}"></div>
+      <article class="project-card reveal">
+        <a class="project-cover-link" href="${project.href}" aria-label="${project.linkLabel}">
+          <div class="project-media" data-media-label="${getProjectInitials(project.title)}">
+            <img src="${project.cover}" alt="" loading="lazy" onerror="this.hidden=true;">
+            <span class="project-cover-cta">${content.projects.detailLabel}</span>
+          </div>
+        </a>
         <div class="project-content">
           <div class="project-topline">
-            <span>${project.type}</span>
             <span class="category-tag">${project.category}</span>
           </div>
           <h3>${project.title}</h3>

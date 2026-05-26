@@ -98,63 +98,97 @@ const siteContent = {
     projects: {
       eyebrow: "Projekte",
       heading: "Ausgewählte Projekte",
-      detailLabel: "Details folgen",
+      detailLabel: "Mehr erfahren",
       cards: [
         {
-          title: "Parallel SCARA Robot",
-          type: "Robot Design",
-          category: "Eigenprojekt",
-          mediaLabel: "SCARA Robot Media",
-          mediaClass: "media-scara",
-          description: "Konstruktion, Kinematik, Prototyping und Steuerung eines parallelen SCARA-Roboters als eigenständiges Robotikprojekt.",
-          technologies: ["CAD", "Kinematics", "Control"],
-          linkLabel: "Details zum Parallel SCARA Robot Projekt folgen",
-          href: "#"
-        },
-        {
           title: "KUKA External Control",
-          type: "Industrial Robotics",
           category: "Bachelorarbeit",
-          mediaLabel: "KUKA Control Media",
-          mediaClass: "media-kuka",
-          description: "Externe Robotersteuerung, Schnittstellen, Bahnplanung und experimentelle Validierung an einem Industrieroboter.",
-          technologies: ["KUKA", "Automation", "Path Control"],
-          linkLabel: "Details zum KUKA External Control Projekt folgen",
-          href: "#"
+          cover: "assets/projects/kuka-external-control/cover.jpg",
+          description: "Externe Steuerung eines KUKA Industrieroboters über Schnittstellen, Bahnplanung und experimentelle Validierung.",
+          technologies: ["KUKA", "Robot Control", "C#", "MATLAB"],
+          linkLabel: "Mehr erfahren über KUKA External Control",
+          href: "projects/kuka-external-control.html"
         },
         {
-          title: "Tactile Sensing Skin",
-          type: "Sensing",
-          category: "Universität",
-          mediaLabel: "Tactile Sensor Media",
-          mediaClass: "media-tactile",
-          description: "Taktile Sensorhaut als universitärer Prototyp mit Fokus auf Sensorintegration, Signalverarbeitung und Robotik-Anwendung.",
-          technologies: ["Sensors", "Data", "Prototyping"],
-          linkLabel: "Details zum Tactile Sensing Skin Projekt folgen",
-          href: "#"
+          title: "Parallel SCARA Robot",
+          category: "Eigenprojekt",
+          cover: "assets/projects/parallel-scara/cover.jpg",
+          description: "Entwicklung eines parallelen SCARA Roboters mit mechanischer Konstruktion, Kinematik und eigener Steuerung.",
+          technologies: ["Robotik", "CAD", "Kinematik", "Steuerung"],
+          linkLabel: "Mehr erfahren über Parallel SCARA Robot",
+          href: "projects/parallel-scara.html"
         },
         {
-          title: "Motion Planning / Robotics",
-          type: "Algorithms",
-          category: "Universität",
-          mediaLabel: "Motion Planning Media",
-          mediaClass: "media-motion",
-          description: "Platzhalter für Pfadplanung, Trajektorien, Simulation und spätere Erweiterung mit interaktiven Visualisierungen.",
-          technologies: ["Planning", "Simulation", "JavaScript"],
-          linkLabel: "Details zum Motion Planning Projekt folgen",
-          href: "#"
+          title: "Taktile Sensorhaut",
+          category: "Semesterarbeit",
+          cover: "assets/projects/tactile-skin/cover.jpg",
+          description: "Entwicklung und Validierung einer flexiblen taktilen Sensorhaut zur Erfassung von Kontaktposition sowie Normal und Scherkräften.",
+          technologies: ["Sensorik", "Robotik", "Validierung", "Prototyping"],
+          linkLabel: "Mehr erfahren über Taktile Sensorhaut",
+          href: "projects/tactile-skin.html"
         },
         {
-          title: "Masterarbeit",
-          type: "Research",
-          category: "Forschung",
-          mediaLabel: "Master Thesis Media",
-          mediaClass: "media-thesis",
-          featured: true,
-          description: "Platzhalter für ein forschungsorientiertes Masterarbeitsprojekt mit Robotik-, Mechatronik- oder Biomechanik-Bezug.",
-          technologies: ["Research", "Robotics", "Validation"],
-          linkLabel: "Details zur Masterarbeit folgen",
-          href: "#"
+          title: "Robot Planning mit Reinforcement Learning",
+          category: "Masterarbeit",
+          cover: "assets/projects/robot-planning-rl/cover.jpg",
+          description: "Masterarbeitsprojekt im Bereich roboterbasierter Planung mit Reinforcement Learning und simulativer Evaluierung.",
+          technologies: ["Reinforcement Learning", "Robot Planning", "Simulation", "Research"],
+          linkLabel: "Mehr erfahren über Robot Planning mit Reinforcement Learning",
+          href: "projects/robot-planning-rl.html"
+        },
+        {
+          title: "Path Planning mit OMPL und Kautham",
+          category: "Uniaufgabe",
+          cover: "assets/projects/path-planning/cover.jpg",
+          description: "Umsetzung von Pfadplanung und Robotik Simulation mit OMPL, Kautham und ROS2 im Kontext von Task and Motion Planning.",
+          technologies: ["ROS2", "OMPL", "Kautham", "Motion Planning"],
+          linkLabel: "Mehr erfahren über Path Planning mit OMPL und Kautham",
+          href: "projects/path-planning.html"
+        },
+        {
+          title: "Moveo Robotermodell",
+          category: "Eigenprojekt",
+          cover: "assets/projects/moveo-robot/cover.jpg",
+          description: "Umbau und Aufbau eines Moveo Roboterarms mit eigener Steuerung und praktischer Inbetriebnahme.",
+          technologies: ["Robotik", "Steuerung", "Arduino", "Prototyping"],
+          linkLabel: "Mehr erfahren über Moveo Robotermodell",
+          href: "projects/moveo-robot.html"
+        },
+        {
+          title: "CNC Fräse Eigenbau",
+          category: "Schulprojekt",
+          cover: "assets/projects/cnc-fraese/cover.jpg",
+          description: "Eigenbau einer CNC Fräse mit Fokus auf mechanischem Aufbau, Antriebstechnik und praktischer Umsetzung.",
+          technologies: ["CNC", "Mechanik", "Konstruktion", "Prototyping"],
+          linkLabel: "Mehr erfahren über CNC Fräse Eigenbau",
+          href: "projects/cnc-fraese.html"
+        },
+        {
+          title: "Offline Roboterprogrammierung",
+          category: "Firmenprojekt",
+          cover: "assets/projects/ccloos-c4-compact/cover.jpg",
+          description: "Offline Programmierung für eine CLOOS C4 Compact Schweißroboterzelle zur Unterstützung industrieller Fertigungsprozesse.",
+          technologies: ["CLOOS", "Schweißroboter", "Offline Programming", "Industrie"],
+          linkLabel: "Mehr erfahren über Offline Roboterprogrammierung",
+          href: "projects/ccloos-c4-compact.html"
+        },
+        {
+          title: "Auftragsautomatisierung",
+          category: "Firmenprojekt",
+          cover: "assets/projects/order-automation/cover.jpg",
+          description: "Automatisierung von Auftragsprozessen mit Fokus auf Datenextraktion, Prozesslogik und zuverlässige Übergabe an bestehende Systeme.",
+          technologies: ["Automation", "Python", "Power Automate", "ERP"],
+          linkLabel: "Mehr erfahren über Auftragsautomatisierung",
+          href: "projects/order-automation.html"
+        },
+        {
+          title: "Cocktailbar",
+          category: "Eigenprojekt",
+          cover: "assets/projects/cocktailbar/cover.jpg",
+          description: "Eigenes Bar Projekt mit Planung, Aufbau und technischer Umsetzung einer individuellen Cocktailbar.",
+          technologies: ["Design", "Eigenbau", "Prototyping", "Hardware"],
+          linkLabel: "Mehr erfahren über Cocktailbar",
+          href: "projects/cocktailbar.html"
         }
       ]
     },
@@ -301,63 +335,97 @@ const siteContent = {
     projects: {
       eyebrow: "Projects",
       heading: "Selected projects",
-      detailLabel: "Details coming soon",
+      detailLabel: "Learn more",
       cards: [
         {
-          title: "Parallel SCARA Robot",
-          type: "Robot Design",
-          category: "Personal Project",
-          mediaLabel: "SCARA Robot Media",
-          mediaClass: "media-scara",
-          description: "Design, kinematics, prototyping and control of a parallel SCARA robot as an independent robotics project.",
-          technologies: ["CAD", "Kinematics", "Control"],
-          linkLabel: "Details for the Parallel SCARA Robot project coming soon",
-          href: "#"
+          title: "KUKA External Control",
+          category: "Bachelor Thesis",
+          cover: "assets/projects/kuka-external-control/cover.jpg",
+          description: "External control of a KUKA industrial robot through interfaces, path planning and experimental validation.",
+          technologies: ["KUKA", "Robot Control", "C#", "MATLAB"],
+          linkLabel: "Learn more about KUKA External Control",
+          href: "projects/kuka-external-control.html"
         },
         {
-          title: "KUKA External Control",
-          type: "Industrial Robotics",
-          category: "Bachelor Thesis",
-          mediaLabel: "KUKA Control Media",
-          mediaClass: "media-kuka",
-          description: "External robot control, interfaces, path planning and experimental validation on an industrial robot.",
-          technologies: ["KUKA", "Automation", "Path Control"],
-          linkLabel: "Details for the KUKA External Control project coming soon",
-          href: "#"
+          title: "Parallel SCARA Robot",
+          category: "Personal Project",
+          cover: "assets/projects/parallel-scara/cover.jpg",
+          description: "Development of a parallel SCARA robot with mechanical design, kinematics and custom control.",
+          technologies: ["Robotics", "CAD", "Kinematics", "Control"],
+          linkLabel: "Learn more about Parallel SCARA Robot",
+          href: "projects/parallel-scara.html"
         },
         {
           title: "Tactile Sensing Skin",
-          type: "Sensing",
-          category: "University",
-          mediaLabel: "Tactile Sensor Media",
-          mediaClass: "media-tactile",
-          description: "University prototype of a tactile sensing skin with a focus on sensor integration, signal processing and robotics application.",
-          technologies: ["Sensors", "Data", "Prototyping"],
-          linkLabel: "Details for the Tactile Sensing Skin project coming soon",
-          href: "#"
+          category: "Semester Project",
+          cover: "assets/projects/tactile-skin/cover.jpg",
+          description: "Development and validation of a flexible tactile sensing skin for detecting contact position as well as normal and shear forces.",
+          technologies: ["Sensing", "Robotics", "Validation", "Prototyping"],
+          linkLabel: "Learn more about Tactile Sensing Skin",
+          href: "projects/tactile-skin.html"
         },
         {
-          title: "Motion Planning / Robotics",
-          type: "Algorithms",
-          category: "University",
-          mediaLabel: "Motion Planning Media",
-          mediaClass: "media-motion",
-          description: "Placeholder for path planning, trajectories, simulation and later extension with interactive visualizations.",
-          technologies: ["Planning", "Simulation", "JavaScript"],
-          linkLabel: "Details for the Motion Planning project coming soon",
-          href: "#"
+          title: "Robot Planning with Reinforcement Learning",
+          category: "Master Thesis",
+          cover: "assets/projects/robot-planning-rl/cover.jpg",
+          description: "Master's thesis project in robot-based planning with reinforcement learning and simulation-based evaluation.",
+          technologies: ["Reinforcement Learning", "Robot Planning", "Simulation", "Research"],
+          linkLabel: "Learn more about Robot Planning with Reinforcement Learning",
+          href: "projects/robot-planning-rl.html"
         },
         {
-          title: "Master Thesis",
-          type: "Research",
-          category: "Research",
-          mediaLabel: "Master Thesis Media",
-          mediaClass: "media-thesis",
-          featured: true,
-          description: "Placeholder for a research-oriented master's thesis project related to robotics, mechatronics or biomechanics.",
-          technologies: ["Research", "Robotics", "Validation"],
-          linkLabel: "Details for the master's thesis coming soon",
-          href: "#"
+          title: "Path Planning with OMPL and Kautham",
+          category: "University Task",
+          cover: "assets/projects/path-planning/cover.jpg",
+          description: "Implementation of path planning and robotics simulation with OMPL, Kautham and ROS2 in the context of task and motion planning.",
+          technologies: ["ROS2", "OMPL", "Kautham", "Motion Planning"],
+          linkLabel: "Learn more about Path Planning with OMPL and Kautham",
+          href: "projects/path-planning.html"
+        },
+        {
+          title: "Moveo Robot Model",
+          category: "Personal Project",
+          cover: "assets/projects/moveo-robot/cover.jpg",
+          description: "Modification and build-up of a Moveo robot arm with custom control and practical commissioning.",
+          technologies: ["Robotics", "Control", "Arduino", "Prototyping"],
+          linkLabel: "Learn more about Moveo Robot Model",
+          href: "projects/moveo-robot.html"
+        },
+        {
+          title: "Custom CNC Router",
+          category: "School Project",
+          cover: "assets/projects/cnc-fraese/cover.jpg",
+          description: "Self-built CNC router with focus on mechanical structure, drive technology and practical implementation.",
+          technologies: ["CNC", "Mechanics", "Design", "Prototyping"],
+          linkLabel: "Learn more about Custom CNC Router",
+          href: "projects/cnc-fraese.html"
+        },
+        {
+          title: "Offline Robot Programming",
+          category: "Company Project",
+          cover: "assets/projects/ccloos-c4-compact/cover.jpg",
+          description: "Offline programming for a CLOOS C4 Compact welding robot cell to support industrial manufacturing processes.",
+          technologies: ["CLOOS", "Welding Robot", "Offline Programming", "Industry"],
+          linkLabel: "Learn more about Offline Robot Programming",
+          href: "projects/ccloos-c4-compact.html"
+        },
+        {
+          title: "Order Automation",
+          category: "Company Project",
+          cover: "assets/projects/order-automation/cover.jpg",
+          description: "Automation of order processes with focus on data extraction, process logic and reliable transfer into existing systems.",
+          technologies: ["Automation", "Python", "Power Automate", "ERP"],
+          linkLabel: "Learn more about Order Automation",
+          href: "projects/order-automation.html"
+        },
+        {
+          title: "Cocktail Bar",
+          category: "Personal Project",
+          cover: "assets/projects/cocktailbar/cover.jpg",
+          description: "Personal bar project with planning, construction and technical implementation of an individual cocktail bar.",
+          technologies: ["Design", "DIY Build", "Prototyping", "Hardware"],
+          linkLabel: "Learn more about Cocktail Bar",
+          href: "projects/cocktailbar.html"
         }
       ]
     },
