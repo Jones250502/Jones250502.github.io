@@ -167,9 +167,10 @@ const siteContent = {
       eyebrow: "Kontakt",
       heading: "Bereit fuer Austausch zu Robotik, Automatisierung und Engineering Rollen.",
       items: [
-        { label: "Email", value: "jonas@example.com", href: "mailto:jonas@example.com" },
-        { label: "LinkedIn", value: "Profil spaeter ergaenzen", href: "#", ariaLabel: "LinkedIn Profil spaeter ergaenzen" },
-        { label: "GitHub", value: "Repositorys spaeter ergaenzen", href: "#", ariaLabel: "GitHub Profil spaeter ergaenzen" }
+        { label: "Email", value: "fritsch.jonasmichael@gmail.com", href: "mailto:fritsch.jonasmichael@gmail.com", icon: "email" },
+        { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" },
+        //{ label: "GitHub", value: "Repositories to be added", href: "#", ariaLabel: "GitHub profile to be added" }
+      
       ]
     },
     footer: {
@@ -344,9 +345,9 @@ const siteContent = {
       eyebrow: "Contact",
       heading: "Open to exchange about robotics, automation and engineering roles.",
       items: [
-        { label: "Email", value: "jonas@example.com", href: "mailto:jonas@example.com" },
-        { label: "LinkedIn", value: "Profile to be added", href: "#", ariaLabel: "LinkedIn profile to be added" },
-        { label: "GitHub", value: "Repositories to be added", href: "#", ariaLabel: "GitHub profile to be added" }
+        { label: "Email", value: "fritsch.jonasmichael@gmail.com", href: "mailto:fritsch.jonasmichael@gmail.com", icon: "email" },
+        { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" },
+        //{ label: "GitHub", value: "Repositories to be added", href: "#", ariaLabel: "GitHub profile to be added" }
       ]
     },
     footer: {

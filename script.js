@@ -143,9 +143,12 @@ function renderCv(content) {
 function renderContact(content) {
   document.querySelector("[data-contact-list]").innerHTML = content.contact.items
     .map((item) => `
-      <a class="contact-item reveal" href="${item.href}" aria-label="${item.ariaLabel || `${item.label}: ${item.value}`}">
-        <span>${item.label}</span>
-        <strong>${item.value}</strong>
+      <a class="contact-item reveal" href="${item.href}" ${item.href.startsWith("mailto:") ? 'data-mail-link="true"' : 'target="_blank" rel="noopener"'} aria-label="${item.ariaLabel || `${item.label}: ${item.value}`}">
+        <span class="contact-icon contact-icon-${item.icon || "link"}" aria-hidden="true"></span>
+        <span class="contact-meta">
+          <span>${item.label}</span>
+          <strong>${item.value}</strong>
+        </span>
       </a>
     `)
     .join("");
@@ -223,6 +226,15 @@ function bindNavigationLinks() {
   });
 }
 
+function bindMailLinks() {
+  document.querySelectorAll("[data-mail-link]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.href = link.href;
+    });
+  });
+}
+
 function setLanguage(lang) {
   if (!window.siteContent[lang]) {
     return;
@@ -244,6 +256,7 @@ function setLanguage(lang) {
   renderFooter(content);
   updateLanguageToggle();
   bindNavigationLinks();
+  bindMailLinks();
   initRevealObserver();
   initSectionObserver();
   updateHeaderState();

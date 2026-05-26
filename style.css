@@ -505,6 +505,10 @@ h3 {
   background: rgba(16, 32, 41, 0.42);
 }
 
+.skills-band.is-hidden {
+  display: none;
+}
+
 .skills-track {
   display: flex;
   flex-wrap: wrap;
@@ -713,13 +717,18 @@ h3 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 420px));
+  justify-content: center;
   gap: 18px;
 }
 
 .contact-item {
-  display: block;
-  padding: 24px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 92px;
+  padding: 20px;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -728,15 +737,49 @@ h3 {
   border-color: rgba(57, 213, 182, 0.46);
 }
 
-.contact-item span {
+.contact-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(214, 169, 95, 0.28);
+  border-radius: var(--radius);
+  color: var(--accent);
+  background: rgba(214, 169, 95, 0.08);
+}
+
+.contact-icon::before {
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.contact-icon-email::before {
+  content: "@";
+}
+
+.contact-icon-linkedin::before {
+  content: "in";
+  font-family: Arial, sans-serif;
+}
+
+.contact-icon-link::before {
+  content: "↗";
+}
+
+.contact-meta span {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   color: var(--muted);
   font-size: 0.84rem;
 }
 
-.contact-item strong {
-  overflow-wrap: anywhere;
+.contact-meta strong {
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .site-footer {
@@ -797,7 +840,7 @@ h3 {
   .journey-track,
   .project-grid,
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .journey-track::before {
