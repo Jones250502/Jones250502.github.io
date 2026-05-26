@@ -2,7 +2,7 @@ const siteContent = {
   de: {
     meta: {
       title: "Jonas Fritsch | Engineering & Robotics Portfolio",
-      description: "Portfolio fuer Mechatronik, Robotik, Automatisierung und technische Entwicklung."
+      description: "Portfolio für Mechatronik, Robotik, Automatisierung und technische Entwicklung."
     },
     brand: {
       mark: "J",
@@ -15,50 +15,50 @@ const siteContent = {
     },
     nav: {
       label: "Hauptnavigation",
-      menuLabel: "Menue oeffnen",
+      menuLabel: "Menü öffnen",
       items: [
-        { label: "Home", href: "#home" },
-        { label: "Ueber mich", href: "#about" },
-        { label: "Journey", href: "#journey" },
+        { label: "Start", href: "#home" },
+        { label: "Über mich", href: "#about" },
+        { label: "Werdegang", href: "#journey" },
         { label: "Projekte", href: "#projects" },
-        { label: "CV", href: "#cv" },
+        { label: "Lebenslauf", href: "#cv" },
         { label: "Kontakt", href: "#contact" }
       ]
     },
     hero: {
-      kicker: "Hi, I'm",
+      kicker: "Hi, Ich bin",
       name: "Jonas Fritsch",
-      degree: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM",
-      focus: "Robotics • Automation • Prototyping • Control Systems",
+      degree: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering\nTechnische Universität München",
+      focus: "Robotik • Automatisierung • Prototyping • Regelung",
       actionsLabel: "Hero Navigation",
       buttons: [
-        { label: "Projects", href: "#projects", style: "primary" },
-        { label: "CV", href: "#cv", style: "secondary" },
-        { label: "Contact", href: "#contact", style: "ghost" }
+        { label: "Projekte", href: "#projects", style: "primary" },
+        { label: "Lebenslauf", href: "#cv", style: "secondary" },
+        { label: "Kontakt", href: "#contact", style: "ghost" }
       ]
     },
     about: {
-      eyebrow: "Ueber mich",
-      heading: "Engineering zwischen Robotik, Automatisierung und praktischer Entwicklung.",
-      cardTitle: "Hands on Robotics Engineering",
+      eyebrow: "Über mich",
+      heading: "Über mich",
+      cardTitle: "Robotik und technische Entwicklung",
       paragraphs: [
-        "Ich interessiere mich fuer Robotik, Automatisierung und technische Systeme, die nicht nur theoretisch funktionieren, sondern als Prototyp, Versuchsaufbau oder Maschine real greifbar werden. Besonders spannend ist fuer mich die Verbindung aus Mechanik, Elektronik und Software.",
-        "Mein Fokus liegt auf interdisziplinaerer Entwicklung: Anforderungen verstehen, Konzepte ableiten, Hardware aufbauen, Steuerung implementieren und technische Entscheidungen durch Tests sichtbar machen."
+        "Mich begeistert Robotik und technische Entwicklung, bei der Ideen nicht nur theoretisch bestehen, sondern als reale Systeme sichtbar werden.",
+        "Mein Interesse liegt besonders in der Verbindung von Mechanik, Elektronik und Software. Ich arbeite gerne interdisziplinär, vom Konzept über Konstruktion und Steuerung bis hin zu Prototyping und experimenteller Validierung."
       ]
     },
     toolbox: {
-      label: "Technical Toolbox",
-      title: "Technical Toolbox",
-      subtitle: "Ausgewaehlte Tools & Entwicklungsumgebungen",
+      label: "Werkzeuge",
+      title: "Werkzeuge",
+      subtitle: "Tools und Technologien",
       tools: [
-        { name: "Fusion 360", category: "CAD", logo: "assets/logos/fusion-360.svg" },
-        { name: "Creo Parametric", category: "CAD", logo: "assets/logos/creo.svg" },
-        { name: "SolidWorks", category: "CAD", logo: "assets/logos/solidworks.svg" },
-        { name: "Unity", category: "Simulation", logo: "assets/logos/unity.svg" },
-        { name: "KRL", category: "Robot Programming", logo: "assets/logos/krl.svg" },
-        { name: "Isaac Sim", category: "Robotics Simulation", logo: "assets/logos/isaac-sim.svg" },
-        { name: "Isaac Lab", category: "Reinforcement Learning", logo: "assets/logos/isaac-lab.svg" },
-        { name: "MATLAB", category: "Engineering Computing", logo: "assets/logos/matlab.svg", secondary: true },
+        { name: "Fusion 360", category: "CAD", logo: "assets/logos/Fusion360_Logo.svg" },
+        { name: "Creo Parametric", category: "CAD", logo: "assets/logos/PTC_Creo_logo.svg" },
+        { name: "SolidWorks", category: "CAD", logo: "assets/logos/SolidWorks_logo.tiff" },
+        { name: "Unity", category: "Simulation", logo: "assets/logos/Unity_Technologies_logo.svg" },
+        { name: "KRL", category: "Robot Programming", logo: "assets/logos/KUKA-logo.svg" },
+        { name: "Isaac Sim", category: "Robotics Simulation", logo: "assets/logos/NVIDIA_logo.svg" },
+        { name: "Isaac Lab", category: "Reinforcement Learning", logo: "assets/logos/NVIDIA_logo.svg" },
+        { name: "MATLAB", category: "Engineering Computing", logo: "assets/logos/Matlab_Logo.png", secondary: true },
         { name: "Visual Studio", category: "Development", logo: "assets/logos/visual-studio.svg", secondary: true },
         { name: "VS Code", category: "Development", logo: "assets/logos/vs-code.svg", secondary: true },
         { name: "Arduino", category: "Embedded Prototyping", logo: "assets/logos/arduino.svg", secondary: true }
@@ -69,32 +69,35 @@ const siteContent = {
       items: ["Robot Control", "Mechatronics", "CAD Design", "Embedded Systems", "Motion Planning", "Sensor Integration", "Automation"]
     },
     journey: {
-      eyebrow: "Bildung & Journey",
-      heading: "Akademische Entwicklung mit technischem Schwerpunkt und internationaler Perspektive.",
+      eyebrow: "Werdegang",
+      heading: "Ausbildung und Hintergrund",
       entries: [
         {
           logo: "KIT",
+          logoPath: "assets/logos/Logo_KIT.svg",
           label: "Bachelor",
-          title: "KIT",
+          title: "Karlsruher Institut für Technologie (KIT)",
           text: "Bachelor Maschinenbau mit technischer Grundlage in Konstruktion, Mechanik und ingenieurwissenschaftlichem Denken."
         },
         {
           logo: "TUM",
+          logoPath: "assets/logos/Logo_of_the_Technical_University_of_Munich.svg",
           label: "Master",
-          title: "TUM",
+          title: "Technische Universität München (TUM)",
           text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering mit Fokus auf Robotik, Systeme und Regelung."
         },
         {
           logo: "UPC",
+          logoPath: "assets/logos/Logo_UPC.svg",
           label: "International",
-          title: "UPC Barcelona",
-          text: "Auslandssemester mit internationaler Erfahrung, neuen technischen Perspektiven und akademischem Austausch."
+          title: "Universitat Politècnica de Catalunya (UPC)",
+          text: "Auslandssemester mit internationaler Erfahrung und akademischem Austausch."
         }
       ]
     },
     projects: {
       eyebrow: "Projekte",
-      heading: "Ein gemeinsames Portfolio aus Robotik, Prototyping, Steuerung und Forschung.",
+      heading: "Ausgewählte Projekte",
       detailLabel: "Details folgen",
       cards: [
         {
@@ -103,7 +106,7 @@ const siteContent = {
           category: "Eigenprojekt",
           mediaLabel: "SCARA Robot Media",
           mediaClass: "media-scara",
-          description: "Konstruktion, Kinematik, Prototyping und Steuerung eines parallelen SCARA-Roboters als eigenstaendiges Robotikprojekt.",
+          description: "Konstruktion, Kinematik, Prototyping und Steuerung eines parallelen SCARA-Roboters als eigenständiges Robotikprojekt.",
           technologies: ["CAD", "Kinematics", "Control"],
           linkLabel: "Details zum Parallel SCARA Robot Projekt folgen",
           href: "#"
@@ -122,10 +125,10 @@ const siteContent = {
         {
           title: "Tactile Sensing Skin",
           type: "Sensing",
-          category: "Universitaet",
+          category: "Universität",
           mediaLabel: "Tactile Sensor Media",
           mediaClass: "media-tactile",
-          description: "Taktile Sensorhaut als universitaerer Prototyp mit Fokus auf Sensorintegration, Signalverarbeitung und Robotik-Anwendung.",
+          description: "Taktile Sensorhaut als universitärer Prototyp mit Fokus auf Sensorintegration, Signalverarbeitung und Robotik-Anwendung.",
           technologies: ["Sensors", "Data", "Prototyping"],
           linkLabel: "Details zum Tactile Sensing Skin Projekt folgen",
           href: "#"
@@ -133,10 +136,10 @@ const siteContent = {
         {
           title: "Motion Planning / Robotics",
           type: "Algorithms",
-          category: "Universitaet",
+          category: "Universität",
           mediaLabel: "Motion Planning Media",
           mediaClass: "media-motion",
-          description: "Platzhalter fuer Pfadplanung, Trajektorien, Simulation und spaetere Erweiterung mit interaktiven Visualisierungen.",
+          description: "Platzhalter für Pfadplanung, Trajektorien, Simulation und spätere Erweiterung mit interaktiven Visualisierungen.",
           technologies: ["Planning", "Simulation", "JavaScript"],
           linkLabel: "Details zum Motion Planning Projekt folgen",
           href: "#"
@@ -148,7 +151,7 @@ const siteContent = {
           mediaLabel: "Master Thesis Media",
           mediaClass: "media-thesis",
           featured: true,
-          description: "Platzhalter fuer ein forschungsorientiertes Masterarbeitsprojekt mit Robotik-, Mechatronik- oder Biomechanik-Bezug.",
+          description: "Platzhalter für ein forschungsorientiertes Masterarbeitsprojekt mit Robotik-, Mechatronik- oder Biomechanik-Bezug.",
           technologies: ["Research", "Robotics", "Validation"],
           linkLabel: "Details zur Masterarbeit folgen",
           href: "#"
@@ -158,27 +161,26 @@ const siteContent = {
     cv: {
       kicker: "Lebenslauf",
       title: "Lebenslauf",
-      subtitle: "Kompakter Ueberblick ueber Ausbildung, technische Schwerpunkte und praktische Engineering Erfahrung.",
+      subtitle: "Ausbildung, technische Schwerpunkte und Engineering Erfahrung im Überblick.",
       pdfPath: "assets/documents/cv-jonas-fritsch.pdf",
       buttons: {
         view: "CV ansehen",
         download: "CV herunterladen"
       },
       highlights: [
-        "M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM",
-        "Robotik, Automatisierung und Prototyping",
-        "CAD, Simulation, Robot Control und Embedded Systems",
-        "Industrie und Forschungsprojekte mit praktischem Entwicklungsfokus"
+        "M.Sc. Mechatronics, Robotics and Biomechanical Engineering",
+        "Technische Universität München",
+        "Robotik, Automatisierung und interdisziplinäre Entwicklung",
+        "CAD, Steuerung, Simulation und technische Softwareentwicklung",
+        "Praxisnahe Projekte aus Industrie, Forschung und Prototyping"
       ]
     },
     contact: {
       eyebrow: "Kontakt",
-      heading: "Bereit fuer Austausch zu Robotik, Automatisierung und Engineering Rollen.",
+      heading: "Interesse an Robotik, Automatisierung oder technischer Entwicklung? Ich freue mich über Austausch und neue Projekte.",
       items: [
         { label: "Email", value: "fritsch.jonasmichael@gmail.com", href: "mailto:fritsch.jonasmichael@gmail.com", icon: "email" },
-        { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" },
-        //{ label: "GitHub", value: "Repositories to be added", href: "#", ariaLabel: "GitHub profile to be added" }
-      
+        { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" }
       ]
     },
     footer: {
@@ -208,7 +210,7 @@ const siteContent = {
     brand: {
       mark: "J",
       text: "Engineering Portfolio",
-      homeLabel: "Back to home"
+      homeLabel: "Back to start"
     },
     language: {
       label: "Switch language",
@@ -218,48 +220,48 @@ const siteContent = {
       label: "Main navigation",
       menuLabel: "Open menu",
       items: [
-        { label: "Home", href: "#home" },
+        { label: "Start", href: "#home" },
         { label: "About", href: "#about" },
-        { label: "Journey", href: "#journey" },
+        { label: "Background", href: "#journey" },
         { label: "Projects", href: "#projects" },
-        { label: "CV", href: "#cv" },
+        { label: "Resume", href: "#cv" },
         { label: "Contact", href: "#contact" }
       ]
     },
     hero: {
       kicker: "Hi, I'm",
       name: "Jonas Fritsch",
-      degree: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM",
+      degree: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering\nTechnical University of Munich",
       focus: "Robotics • Automation • Prototyping • Control Systems",
       actionsLabel: "Hero navigation",
       buttons: [
         { label: "Projects", href: "#projects", style: "primary" },
-        { label: "CV", href: "#cv", style: "secondary" },
+        { label: "Resume", href: "#cv", style: "secondary" },
         { label: "Contact", href: "#contact", style: "ghost" }
       ]
     },
     about: {
       eyebrow: "About",
-      heading: "Engineering between robotics, automation and practical development.",
-      cardTitle: "Hands on Robotics Engineering",
+      heading: "About me",
+      cardTitle: "Robotics and technical development",
       paragraphs: [
-        "I am interested in robotics, automation and technical systems that do not only work in theory, but become tangible as prototypes, test setups or machines. The connection between mechanics, electronics and software is what makes this field especially exciting for me.",
-        "My focus is interdisciplinary development: understanding requirements, deriving concepts, building hardware, implementing control and making technical decisions visible through testing."
+        "I am fascinated by robotics and technical development where ideas do not just work in theory, but become visible as real systems.",
+        "I am especially interested in the connection between mechanics, electronics and software. I like working across disciplines, from concept, design and control to prototyping and experimental validation."
       ]
     },
     toolbox: {
-      label: "Technical Toolbox",
-      title: "Technical Toolbox",
-      subtitle: "Selected tools & environments",
+      label: "Tools",
+      title: "Tools",
+      subtitle: "Tools and technologies",
       tools: [
-        { name: "Fusion 360", category: "CAD", logo: "assets/logos/fusion-360.svg" },
-        { name: "Creo Parametric", category: "CAD", logo: "assets/logos/creo.svg" },
-        { name: "SolidWorks", category: "CAD", logo: "assets/logos/solidworks.svg" },
-        { name: "Unity", category: "Simulation", logo: "assets/logos/unity.svg" },
-        { name: "KRL", category: "Robot Programming", logo: "assets/logos/krl.svg" },
-        { name: "Isaac Sim", category: "Robotics Simulation", logo: "assets/logos/isaac-sim.svg" },
-        { name: "Isaac Lab", category: "Reinforcement Learning", logo: "assets/logos/isaac-lab.svg" },
-        { name: "MATLAB", category: "Engineering Computing", logo: "assets/logos/matlab.svg", secondary: true },
+        { name: "Fusion 360", category: "CAD", logo: "assets/logos/Fusion360_Logo.svg" },
+        { name: "Creo Parametric", category: "CAD", logo: "assets/logos/PTC_Creo_logo.svg" },
+        { name: "SolidWorks", category: "CAD", logo: "assets/logos/SolidWorks_logo.tiff" },
+        { name: "Unity", category: "Simulation", logo: "assets/logos/Unity_Technologies_logo.svg" },
+        { name: "KRL", category: "Robot Programming", logo: "assets/logos/KUKA-logo.svg" },
+        { name: "Isaac Sim", category: "Robotics Simulation", logo: "assets/logos/NVIDIA_logo.svg" },
+        { name: "Isaac Lab", category: "Reinforcement Learning", logo: "assets/logos/NVIDIA_logo.svg" },
+        { name: "MATLAB", category: "Engineering Computing", logo: "assets/logos/Matlab_Logo.png", secondary: true },
         { name: "Visual Studio", category: "Development", logo: "assets/logos/visual-studio.svg", secondary: true },
         { name: "VS Code", category: "Development", logo: "assets/logos/vs-code.svg", secondary: true },
         { name: "Arduino", category: "Embedded Prototyping", logo: "assets/logos/arduino.svg", secondary: true }
@@ -270,32 +272,35 @@ const siteContent = {
       items: ["Robot Control", "Mechatronics", "CAD Design", "Embedded Systems", "Motion Planning", "Sensor Integration", "Automation"]
     },
     journey: {
-      eyebrow: "Education & Journey",
-      heading: "Academic development with a technical focus and international perspective.",
+      eyebrow: "Background",
+      heading: "Education and background",
       entries: [
         {
           logo: "KIT",
+          logoPath: "assets/logos/Logo_KIT.svg",
           label: "Bachelor",
-          title: "KIT",
+          title: "Karlsruhe Institute of Technology (KIT)",
           text: "Bachelor's degree in mechanical engineering with a technical foundation in design, mechanics and engineering thinking."
         },
         {
           logo: "TUM",
+          logoPath: "assets/logos/Logo_of_the_Technical_University_of_Munich.svg",
           label: "Master",
-          title: "TUM",
-          text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering with focus on robotics, systems and control."
+          title: "Technical University of Munich (TUM)",
+          text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering with a focus on robotics, systems and control."
         },
         {
           logo: "UPC",
+          logoPath: "assets/logos/Logo_UPC.svg",
           label: "International",
-          title: "UPC Barcelona",
-          text: "Semester abroad with international experience, new technical perspectives and academic exchange."
+          title: "Universitat Politècnica de Catalunya (UPC)",
+          text: "Semester abroad with international experience and academic exchange."
         }
       ]
     },
     projects: {
       eyebrow: "Projects",
-      heading: "A unified portfolio of robotics, prototyping, control and research.",
+      heading: "Selected projects",
       detailLabel: "Details coming soon",
       cards: [
         {
@@ -326,7 +331,7 @@ const siteContent = {
           category: "University",
           mediaLabel: "Tactile Sensor Media",
           mediaClass: "media-tactile",
-          description: "University prototype of a tactile sensing skin with focus on sensor integration, signal processing and robotics application.",
+          description: "University prototype of a tactile sensing skin with a focus on sensor integration, signal processing and robotics application.",
           technologies: ["Sensors", "Data", "Prototyping"],
           linkLabel: "Details for the Tactile Sensing Skin project coming soon",
           href: "#"
@@ -359,26 +364,26 @@ const siteContent = {
     cv: {
       kicker: "Resume",
       title: "Resume",
-      subtitle: "Compact overview of education, technical focus areas and practical engineering experience.",
+      subtitle: "Education, technical focus areas and engineering experience at a glance.",
       pdfPath: "assets/documents/cv-jonas-fritsch.pdf",
       buttons: {
         view: "View CV",
         download: "Download CV"
       },
       highlights: [
-        "M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM",
-        "Robotics, automation and prototyping",
-        "CAD, simulation, robot control and embedded systems",
-        "Industry and research projects with a practical development focus"
+        "M.Sc. Mechatronics, Robotics and Biomechanical Engineering",
+        "Technical University of Munich",
+        "Robotics, automation and interdisciplinary development",
+        "CAD, control, simulation and technical software development",
+        "Practical projects from industry, research and prototyping"
       ]
     },
     contact: {
       eyebrow: "Contact",
-      heading: "Open to exchange about robotics, automation and engineering roles.",
+      heading: "Interested in robotics, automation or technical development? I am always open to exchange and new projects.",
       items: [
         { label: "Email", value: "fritsch.jonasmichael@gmail.com", href: "mailto:fritsch.jonasmichael@gmail.com", icon: "email" },
-        { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" },
-        //{ label: "GitHub", value: "Repositories to be added", href: "#", ariaLabel: "GitHub profile to be added" }
+        { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" }
       ]
     },
     footer: {

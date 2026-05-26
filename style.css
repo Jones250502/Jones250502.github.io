@@ -793,6 +793,11 @@ h3 {
   font-weight: 800;
 }
 
+.journey-logo img {
+  max-width: 44px;
+  max-height: 34px;
+}
+
 .contact-icon-email::before {
   content: "@";
 }

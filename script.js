@@ -101,7 +101,10 @@ function renderJourney(content) {
   document.querySelector("[data-journey-list]").innerHTML = content.journey.entries
     .map((entry) => `
       <article class="journey-card reveal">
-        <span class="journey-logo">${entry.logo}</span>
+        <span class="journey-logo">
+          ${entry.logoPath ? `<img src="${entry.logoPath}" alt="${entry.title}" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">` : ""}
+          <span ${entry.logoPath ? "hidden" : ""}>${entry.logo}</span>
+        </span>
         <div>
           <p class="journey-label">${entry.label}</p>
           <h3>${entry.title}</h3>
