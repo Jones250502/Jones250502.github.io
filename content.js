@@ -156,12 +156,20 @@ const siteContent = {
       ]
     },
     cv: {
-      eyebrow: "Lebenslauf",
-      heading: "Kompakte Resume Vorschau und PDF Download.",
-      text: "Platzhalter fuer technische Schwerpunkte, relevante Stationen, Tools, Programmiersprachen, CAD-Umgebungen und Robotik-Erfahrung.",
-      tags: ["Robotics", "Automation", "Prototyping"],
-      downloadLabel: "CV herunterladen",
-      downloadAria: "Lebenslauf als PDF herunterladen"
+      kicker: "Lebenslauf",
+      title: "Lebenslauf",
+      subtitle: "Kompakter Ueberblick ueber Ausbildung, technische Schwerpunkte und praktische Engineering Erfahrung.",
+      pdfPath: "assets/documents/cv-jonas-fritsch.pdf",
+      buttons: {
+        view: "CV ansehen",
+        download: "CV herunterladen"
+      },
+      highlights: [
+        "M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM",
+        "Robotik, Automatisierung und Prototyping",
+        "CAD, Simulation, Robot Control und Embedded Systems",
+        "Industrie und Forschungsprojekte mit praktischem Entwicklungsfokus"
+      ]
     },
     contact: {
       eyebrow: "Kontakt",
@@ -349,12 +357,20 @@ const siteContent = {
       ]
     },
     cv: {
-      eyebrow: "CV",
-      heading: "Compact resume preview and PDF download.",
-      text: "Placeholder for technical focus areas, relevant experience, tools, programming languages, CAD environments and robotics experience.",
-      tags: ["Robotics", "Automation", "Prototyping"],
-      downloadLabel: "Download CV",
-      downloadAria: "Download CV as PDF"
+      kicker: "Resume",
+      title: "Resume",
+      subtitle: "Compact overview of education, technical focus areas and practical engineering experience.",
+      pdfPath: "assets/documents/cv-jonas-fritsch.pdf",
+      buttons: {
+        view: "View CV",
+        download: "Download CV"
+      },
+      highlights: [
+        "M.Sc. Mechatronics, Robotics and Biomechanical Engineering @ TUM",
+        "Robotics, automation and prototyping",
+        "CAD, simulation, robot control and embedded systems",
+        "Industry and research projects with a practical development focus"
+      ]
     },
     contact: {
       eyebrow: "Contact",

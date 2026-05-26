@@ -134,10 +134,20 @@ function renderProjects(content) {
     .join("");
 }
 
-function renderCv(content) {
-  document.querySelector("[data-cv-tags]").innerHTML = content.cv.tags
-    .map((tag) => `<span>${tag}</span>`)
+function renderCV(content) {
+  document.querySelector("[data-cv-highlights]").innerHTML = content.cv.highlights
+    .map((highlight) => `
+      <article class="cv-highlight">
+        <span></span>
+        <p>${highlight}</p>
+      </article>
+    `)
     .join("");
+
+  document.querySelector("[data-cv-actions]").innerHTML = `
+    <a class="cv-button" href="${content.cv.pdfPath}" target="_blank" rel="noopener noreferrer">${content.cv.buttons.view}</a>
+    <a class="cv-button cv-button-secondary" href="${content.cv.pdfPath}" download>${content.cv.buttons.download}</a>
+  `;
 }
 
 function renderContact(content) {
@@ -281,7 +291,7 @@ function setLanguage(lang) {
   renderSkills(content);
   renderJourney(content);
   renderProjects(content);
-  renderCv(content);
+  renderCV(content);
   renderContact(content);
   renderFooter(content);
   updateLanguageToggle();
