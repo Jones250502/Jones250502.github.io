@@ -155,13 +155,37 @@ function renderContact(content) {
 }
 
 function renderFooter(content) {
-  const year = new Date().getFullYear();
-  setText("[data-footer-text]", `${String.fromCharCode(169)} ${year} ${content.footer.text}`);
+  const footerActions = document.querySelector("[data-footer-actions]");
+  const footerLinks = [content.footer.email, content.footer.linkedin].filter(Boolean);
+
+  footerActions.innerHTML = `
+    <div class="footer-links">
+      ${footerLinks
+        .map((link) => `
+          <a class="footer-icon-link" href="${link.href}" ${link.href.startsWith("mailto:") ? 'data-mail-link="true"' : 'target="_blank" rel="noopener"'} aria-label="${link.label}: ${link.value}">
+            <img src="${link.icon}" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+            <span class="footer-icon-fallback" hidden>${link.fallback}</span>
+          </a>
+        `)
+        .join("")}
+    </div>
+    <div class="footer-language" aria-label="${content.footer.languageLabel}">
+      <button class="footer-language-option" type="button" data-footer-lang="de">DE</button>
+      <span aria-hidden="true">|</span>
+      <button class="footer-language-option" type="button" data-footer-lang="en">EN</button>
+    </div>
+  `;
+
+  setText("[data-footer-copyright]", content.footer.copyright);
 }
 
 function updateLanguageToggle() {
   document.querySelectorAll("[data-lang-option]").forEach((option) => {
     option.classList.toggle("is-active", option.dataset.langOption === currentLanguage);
+  });
+
+  document.querySelectorAll("[data-footer-lang]").forEach((option) => {
+    option.classList.toggle("language-active", option.dataset.footerLang === currentLanguage);
   });
 }
 
@@ -235,6 +259,12 @@ function bindMailLinks() {
   });
 }
 
+function bindFooterLanguage() {
+  document.querySelectorAll("[data-footer-lang]").forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.footerLang));
+  });
+}
+
 function setLanguage(lang) {
   if (!window.siteContent[lang]) {
     return;
@@ -257,6 +287,7 @@ function setLanguage(lang) {
   updateLanguageToggle();
   bindNavigationLinks();
   bindMailLinks();
+  bindFooterLanguage();
   initRevealObserver();
   initSectionObserver();
   updateHeaderState();

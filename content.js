@@ -174,7 +174,22 @@ const siteContent = {
       ]
     },
     footer: {
-      text: "Jonas Fritsch. Engineering & Robotics Portfolio."
+      copyright: "© 2026 Jonas Fritsch. Engineering & Robotics Portfolio.",
+      email: {
+        label: "Email",
+        value: "fritsch.jonasmichael@gmail.com",
+        href: "mailto:fritsch.jonasmichael@gmail.com",
+        icon: "assets/icons/mail.svg",
+        fallback: "✉"
+      },
+      linkedin: {
+        label: "LinkedIn",
+        value: "LinkedIn",
+        href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid",
+        icon: "assets/icons/linkedin.svg",
+        fallback: "in"
+      },
+      languageLabel: "Sprache"
     }
   },
   en: {
@@ -351,7 +366,22 @@ const siteContent = {
       ]
     },
     footer: {
-      text: "Jonas Fritsch. Engineering & Robotics Portfolio."
+      copyright: "© 2026 Jonas Fritsch. Engineering & Robotics Portfolio.",
+      email: {
+        label: "Email",
+        value: "fritsch.jonasmichael@gmail.com",
+        href: "mailto:fritsch.jonasmichael@gmail.com",
+        icon: "assets/icons/mail.svg",
+        fallback: "✉"
+      },
+      linkedin: {
+        label: "LinkedIn",
+        value: "LinkedIn",
+        href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid",
+        icon: "assets/icons/linkedin.svg",
+        fallback: "in"
+      },
+      languageLabel: "Language"
     }
   }
 };
