@@ -56,9 +56,38 @@ function renderAbout(content) {
   document.querySelector("[data-about-text]").innerHTML = content.about.paragraphs
     .map((paragraph) => `<p>${paragraph}</p>`)
     .join("");
+}
 
-  document.querySelector("[data-about-pillars]").innerHTML = content.about.pillars
-    .map((pillar) => `<span>${pillar}</span>`)
+function getToolFallback(name) {
+  const compactName = name.replace(/[^a-zA-Z0-9 ]/g, "").trim();
+  const words = compactName.split(/\s+/).filter(Boolean);
+
+  if (words.length === 1) {
+    return words[0].slice(0, 3).toUpperCase();
+  }
+
+  return words.map((word) => word[0]).join("").slice(0, 4).toUpperCase();
+}
+
+function renderToolbox(content) {
+  document.querySelector("[data-toolbox-grid]").innerHTML = content.toolbox.tools
+    .filter((tool) => !tool.secondary)
+    .map((tool) => {
+      const fallback = getToolFallback(tool.name);
+
+      return `
+        <article class="tool-tile">
+          <div class="tool-logo-wrap">
+            <img class="tool-logo" src="${tool.logo}" alt="${tool.name}" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+            <span class="tool-fallback" hidden>${fallback}</span>
+          </div>
+          <div>
+            <h4 class="tool-name">${tool.name}</h4>
+            <p class="tool-category">${tool.category}</p>
+          </div>
+        </article>
+      `;
+    })
     .join("");
 }
 
@@ -206,6 +235,7 @@ function setLanguage(lang) {
   renderNavigation(content);
   renderHeroActions(content);
   renderAbout(content);
+  renderToolbox(content);
   renderSkills(content);
   renderJourney(content);
   renderProjects(content);

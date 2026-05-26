@@ -44,9 +44,25 @@ const siteContent = {
       paragraphs: [
         "Ich interessiere mich fuer Robotik, Automatisierung und technische Systeme, die nicht nur theoretisch funktionieren, sondern als Prototyp, Versuchsaufbau oder Maschine real greifbar werden. Besonders spannend ist fuer mich die Verbindung aus Mechanik, Elektronik und Software.",
         "Mein Fokus liegt auf interdisziplinaerer Entwicklung: Anforderungen verstehen, Konzepte ableiten, Hardware aufbauen, Steuerung implementieren und technische Entscheidungen durch Tests sichtbar machen."
-      ],
-      visualLabel: "Engineering Schwerpunkte",
-      pillars: ["Mechanics", "Control", "Electronics", "Software"]
+      ]
+    },
+    toolbox: {
+      label: "Technical Toolbox",
+      title: "Technical Toolbox",
+      subtitle: "Ausgewaehlte Tools & Entwicklungsumgebungen",
+      tools: [
+        { name: "Fusion 360", category: "CAD", logo: "assets/logos/fusion-360.svg" },
+        { name: "Creo Parametric", category: "CAD", logo: "assets/logos/creo.svg" },
+        { name: "SolidWorks", category: "CAD", logo: "assets/logos/solidworks.svg" },
+        { name: "Unity", category: "Simulation", logo: "assets/logos/unity.svg" },
+        { name: "KRL", category: "Robot Programming", logo: "assets/logos/krl.svg" },
+        { name: "Isaac Sim", category: "Robotics Simulation", logo: "assets/logos/isaac-sim.svg" },
+        { name: "Isaac Lab", category: "Reinforcement Learning", logo: "assets/logos/isaac-lab.svg" },
+        { name: "MATLAB", category: "Engineering Computing", logo: "assets/logos/matlab.svg", secondary: true },
+        { name: "Visual Studio", category: "Development", logo: "assets/logos/visual-studio.svg", secondary: true },
+        { name: "VS Code", category: "Development", logo: "assets/logos/vs-code.svg", secondary: true },
+        { name: "Arduino", category: "Embedded Prototyping", logo: "assets/logos/arduino.svg", secondary: true }
+      ]
     },
     skills: {
       label: "Technische Schwerpunkte",
@@ -205,9 +221,25 @@ const siteContent = {
       paragraphs: [
         "I am interested in robotics, automation and technical systems that do not only work in theory, but become tangible as prototypes, test setups or machines. The connection between mechanics, electronics and software is what makes this field especially exciting for me.",
         "My focus is interdisciplinary development: understanding requirements, deriving concepts, building hardware, implementing control and making technical decisions visible through testing."
-      ],
-      visualLabel: "Engineering focus areas",
-      pillars: ["Mechanics", "Control", "Electronics", "Software"]
+      ]
+    },
+    toolbox: {
+      label: "Technical Toolbox",
+      title: "Technical Toolbox",
+      subtitle: "Selected tools & environments",
+      tools: [
+        { name: "Fusion 360", category: "CAD", logo: "assets/logos/fusion-360.svg" },
+        { name: "Creo Parametric", category: "CAD", logo: "assets/logos/creo.svg" },
+        { name: "SolidWorks", category: "CAD", logo: "assets/logos/solidworks.svg" },
+        { name: "Unity", category: "Simulation", logo: "assets/logos/unity.svg" },
+        { name: "KRL", category: "Robot Programming", logo: "assets/logos/krl.svg" },
+        { name: "Isaac Sim", category: "Robotics Simulation", logo: "assets/logos/isaac-sim.svg" },
+        { name: "Isaac Lab", category: "Reinforcement Learning", logo: "assets/logos/isaac-lab.svg" },
+        { name: "MATLAB", category: "Engineering Computing", logo: "assets/logos/matlab.svg", secondary: true },
+        { name: "Visual Studio", category: "Development", logo: "assets/logos/visual-studio.svg", secondary: true },
+        { name: "VS Code", category: "Development", logo: "assets/logos/vs-code.svg", secondary: true },
+        { name: "Arduino", category: "Embedded Prototyping", logo: "assets/logos/arduino.svg", secondary: true }
+      ]
     },
     skills: {
       label: "Technical focus areas",
