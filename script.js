@@ -6,6 +6,11 @@ const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 const languageToggle = document.querySelector("[data-language-toggle]");
+const projectPage = document.querySelector("[data-project-page]");
+
+function isProjectPage() {
+  return Boolean(projectPage);
+}
 
 function getContentValue(path, content = window.siteContent[currentLanguage]) {
   return path.split(".").reduce((value, key) => (value ? value[key] : undefined), content);
@@ -19,9 +24,14 @@ function setText(selector, text) {
 }
 
 function applyStaticText(content) {
+  const project = getCurrentProject();
+  const metaDescription = document.querySelector('meta[name="description"]');
+
   document.documentElement.lang = currentLanguage;
-  document.title = content.meta.title;
-  document.querySelector('meta[name="description"]').setAttribute("content", content.meta.description);
+  document.title = project ? `${project.title} | Jonas Fritsch` : content.meta.title;
+  if (metaDescription) {
+    metaDescription.setAttribute("content", project ? project.summary : content.meta.description);
+  }
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = getContentValue(element.dataset.i18n, content);
@@ -40,20 +50,33 @@ function applyStaticText(content) {
 }
 
 function renderNavigation(content) {
+  if (!navLinks) {
+    return;
+  }
+
   navLinks.innerHTML = content.nav.items
-    .map((item) => `<li><a href="${item.href}">${item.label}</a></li>`)
+    .map((item) => `<li><a href="${isProjectPage() ? `../index.html${item.href}` : item.href}">${item.label}</a></li>`)
     .join("");
 }
 
 function renderHeroActions(content) {
   const container = document.querySelector("[data-hero-actions]");
+  if (!container) {
+    return;
+  }
+
   container.innerHTML = content.hero.buttons
     .map((button) => `<a class="btn btn-${button.style}" href="${button.href}">${button.label}</a>`)
     .join("");
 }
 
 function renderAbout(content) {
-  document.querySelector("[data-about-text]").innerHTML = content.about.paragraphs
+  const container = document.querySelector("[data-about-text]");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = content.about.paragraphs
     .map((paragraph) => `<p>${paragraph}</p>`)
     .join("");
 }
@@ -70,7 +93,12 @@ function getToolFallback(name) {
 }
 
 function renderToolbox(content) {
-  document.querySelector("[data-toolbox-grid]").innerHTML = content.toolbox.tools
+  const container = document.querySelector("[data-toolbox-grid]");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = content.toolbox.tools
     .filter((tool) => !tool.secondary)
     .map((tool) => {
       const fallback = getToolFallback(tool.name);
@@ -92,13 +120,23 @@ function renderToolbox(content) {
 }
 
 function renderSkills(content) {
-  document.querySelector("[data-skills-list]").innerHTML = content.skills.items
+  const container = document.querySelector("[data-skills-list]");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = content.skills.items
     .map((skill) => `<span>${skill}</span>`)
     .join("");
 }
 
 function renderJourney(content) {
-  document.querySelector("[data-journey-list]").innerHTML = content.journey.entries
+  const container = document.querySelector("[data-journey-list]");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = content.journey.entries
     .map((entry) => `
       <article class="journey-card reveal">
         <span class="journey-logo">
@@ -127,7 +165,12 @@ function getProjectInitials(title) {
 }
 
 function renderProjects(content) {
-  document.querySelector("[data-project-list]").innerHTML = content.projects.cards
+  const container = document.querySelector("[data-project-list]");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = content.projects.cards
     .map((project) => `
       <article class="project-card reveal">
         <a class="project-cover-link" href="${project.href}" aria-label="${project.linkLabel}">
@@ -153,7 +196,13 @@ function renderProjects(content) {
 }
 
 function renderCV(content) {
-  document.querySelector("[data-cv-highlights]").innerHTML = content.cv.highlights
+  const highlights = document.querySelector("[data-cv-highlights]");
+  const actions = document.querySelector("[data-cv-actions]");
+  if (!highlights || !actions) {
+    return;
+  }
+
+  highlights.innerHTML = content.cv.highlights
     .map((highlight) => `
       <article class="cv-highlight">
         <span></span>
@@ -162,14 +211,19 @@ function renderCV(content) {
     `)
     .join("");
 
-  document.querySelector("[data-cv-actions]").innerHTML = `
+  actions.innerHTML = `
     <a class="cv-button" href="${content.cv.pdfPath}" target="_blank" rel="noopener noreferrer">${content.cv.buttons.view}</a>
     <a class="cv-button cv-button-secondary" href="${content.cv.pdfPath}" download>${content.cv.buttons.download}</a>
   `;
 }
 
 function renderContact(content) {
-  document.querySelector("[data-contact-list]").innerHTML = content.contact.items
+  const container = document.querySelector("[data-contact-list]");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = content.contact.items
     .map((item) => `
       <a class="contact-item reveal" href="${item.href}" ${item.href.startsWith("mailto:") ? 'data-mail-link="true"' : 'target="_blank" rel="noopener"'} aria-label="${item.ariaLabel || `${item.label}: ${item.value}`}">
         <span class="contact-icon contact-icon-${item.icon || "link"}" aria-hidden="true"></span>
@@ -184,6 +238,10 @@ function renderContact(content) {
 
 function renderFooter(content) {
   const footerActions = document.querySelector("[data-footer-actions]");
+  if (!footerActions) {
+    return;
+  }
+
   const footerLinks = [content.footer.email, content.footer.linkedin].filter(Boolean);
 
   footerActions.innerHTML = `
@@ -218,6 +276,10 @@ function updateLanguageToggle() {
 }
 
 function closeMobileNav() {
+  if (!navToggle || !navLinks) {
+    return;
+  }
+
   navToggle.classList.remove("is-active");
   navToggle.setAttribute("aria-expanded", "false");
   navLinks.classList.remove("is-open");
@@ -225,6 +287,10 @@ function closeMobileNav() {
 }
 
 function updateHeaderState() {
+  if (!header) {
+    return;
+  }
+
   header.classList.toggle("scrolled", window.scrollY > 24);
 }
 
@@ -249,6 +315,10 @@ function initRevealObserver() {
 }
 
 function initSectionObserver() {
+  if (isProjectPage()) {
+    return;
+  }
+
   if (sectionObserver) {
     sectionObserver.disconnect();
   }
@@ -273,7 +343,7 @@ function initSectionObserver() {
 }
 
 function bindNavigationLinks() {
-  document.querySelectorAll(".nav-links a, .hero-actions a").forEach((link) => {
+  document.querySelectorAll(".nav-links a, .hero-actions a, [data-back-to-portfolio]").forEach((link) => {
     link.addEventListener("click", closeMobileNav);
   });
 }
@@ -290,6 +360,207 @@ function bindMailLinks() {
 function bindFooterLanguage() {
   document.querySelectorAll("[data-footer-lang]").forEach((button) => {
     button.addEventListener("click", () => setLanguage(button.dataset.footerLang));
+  });
+}
+
+function getCurrentProject() {
+  if (!isProjectPage()) {
+    return null;
+  }
+
+  if (window.projectDetailContent && window.projectDetailContent[currentLanguage]) {
+    return window.projectDetailContent[currentLanguage];
+  }
+
+  if (!window.projectDetails) {
+    return null;
+  }
+
+  const slug = projectPage.dataset.projectSlug;
+  return window.projectDetails[currentLanguage].items.find((project) => project.slug === slug) || null;
+}
+
+function getProjectToolLogo(toolName) {
+  const content = window.siteContent[currentLanguage];
+  const normalized = toolName.toLowerCase();
+  const aliases = {
+    "c#": "Visual Studio",
+    "gui": "Visual Studio",
+    "bahnparameter": "MATLAB",
+    "path parameters": "MATLAB",
+    "robot control": "KUKA",
+    "kuka robot": "KUKA",
+    "kuka schnittstelle": "KUKA",
+    "kuka interface": "KUKA",
+    "roboterzelle": "KUKA",
+    "robot cell": "KUKA",
+    "systemanalyse": "MATLAB",
+    "system analysis": "MATLAB",
+    "datenkommunikation": "KRL",
+    "data communication": "KRL",
+    "validierung": "MATLAB",
+    "validation": "MATLAB",
+    "testing": "MATLAB"
+  };
+  const lookupName = aliases[normalized] || toolName;
+  const lookup = lookupName.toLowerCase();
+  const tool = content.toolbox.tools.find((item) => {
+    const itemName = item.name.toLowerCase();
+    return lookup.includes(itemName) || itemName.includes(lookup);
+  });
+
+  if (tool) {
+    return tool.logo;
+  }
+
+  if (normalized.includes("kuka") || normalized.includes("krl")) {
+    return "assets/logos/KUKA-logo.svg";
+  }
+
+  if (normalized.includes("matlab")) {
+    return "assets/logos/Matlab_Logo.png";
+  }
+
+  if (normalized.includes("unity")) {
+    return "assets/logos/Unity_Technologies_logo.svg";
+  }
+
+  if (normalized.includes("nvidia") || normalized.includes("isaac")) {
+    return "assets/logos/NVIDIA_logo.svg";
+  }
+
+  return "";
+}
+
+function renderProjectPage() {
+  if (!isProjectPage() || !window.projectDetails) {
+    return;
+  }
+
+  const project = getCurrentProject();
+  if (!project) {
+    return;
+  }
+
+  const labels = window.projectDetails[currentLanguage].labels;
+  const allProjects = window.projectDetails[currentLanguage].items;
+  const projectIndex = allProjects.findIndex((item) => item.slug === project.slug);
+  const previousProject = allProjects[(projectIndex - 1 + allProjects.length) % allProjects.length];
+  const nextProject = allProjects[(projectIndex + 1) % allProjects.length];
+
+  document.querySelectorAll("[data-back-to-portfolio]").forEach((link) => {
+    link.textContent = labels.backToPortfolio;
+    link.href = "../index.html#projects";
+  });
+
+  setText("[data-project-kicker]", project.category);
+  setText("[data-project-title]", project.title);
+  setText("[data-project-subtitle]", project.subtitle);
+  setText("[data-project-summary]", project.summary);
+  setText("[data-project-type-label]", labels.type);
+  setText("[data-project-type]", project.type);
+  setText("[data-project-period-label]", labels.period);
+  setText("[data-project-period]", project.period);
+  setText("[data-project-status-label]", labels.status);
+  setText("[data-project-status]", project.status);
+  setText("[data-tech-heading]", labels.technologies);
+  setText("[data-timeline-heading]", labels.timeline);
+  setText("[data-gallery-heading]", labels.gallery);
+
+  const focusList = document.querySelector("[data-project-focus]");
+  if (focusList) {
+    focusList.innerHTML = (project.focus || [])
+      .map((item) => `<span>${item}</span>`)
+      .join("");
+  }
+
+  const heroMedia = document.querySelector("[data-project-hero-media]");
+  if (heroMedia) {
+    heroMedia.dataset.mediaLabel = getProjectInitials(project.title);
+    heroMedia.innerHTML = `<img src="../${project.cover}" alt="${project.title}" loading="eager" onerror="this.hidden=true;">`;
+  }
+
+  const toolList = document.querySelector("[data-project-tools]");
+  if (toolList) {
+    toolList.innerHTML = project.tools
+      .map((tool) => {
+        const logo = getProjectToolLogo(tool);
+        return `
+          <article class="project-tool">
+            <span class="project-tool-logo">
+              ${logo ? `<img src="../${logo}" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">` : ""}
+              <span ${logo ? "hidden" : ""}>${getToolFallback(tool)}</span>
+            </span>
+            <strong>${tool}</strong>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  const timeline = document.querySelector("[data-project-timeline]");
+  if (timeline) {
+    timeline.innerHTML = project.timeline
+      .map((item, itemIndex) => `
+        <article class="project-timeline-item reveal ${itemIndex % 2 ? "is-reversed" : ""}">
+          <div class="project-timeline-media" data-media-label="${getProjectInitials(item.title)}">
+            <img src="../${item.image}" alt="${item.title}" loading="lazy" onerror="this.hidden=true;">
+          </div>
+          <div class="project-timeline-content">
+            <span class="project-timeline-icon">${item.icon}</span>
+            <h3>${item.title}</h3>
+            ${item.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+            <div class="timeline-tool-grid">
+              ${item.tags.map((tag) => {
+                const logo = getProjectToolLogo(tag);
+                return `
+                  <span class="timeline-tool-tile">
+                    <span class="timeline-tool-logo">
+                      ${logo ? `<img src="../${logo}" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">` : ""}
+                      <span ${logo ? "hidden" : ""}>${getToolFallback(tag)}</span>
+                    </span>
+                    <span class="timeline-tool-name">${tag}</span>
+                  </span>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        </article>
+      `)
+      .join("");
+  }
+
+  const projectNavigation = document.querySelector("[data-project-navigation]");
+  if (projectNavigation) {
+    projectNavigation.innerHTML = `
+      <a class="project-nav-link" href="${previousProject.href}">
+        <span>${labels.previous}</span>
+        <strong>${previousProject.title}</strong>
+      </a>
+      <a class="project-nav-link is-next" href="${nextProject.href}">
+        <span>${labels.next}</span>
+        <strong>${nextProject.title}</strong>
+      </a>
+    `;
+  }
+
+  const gallery = document.querySelector("[data-project-gallery]");
+  if (gallery) {
+    gallery.innerHTML = project.galleryImages
+      .map((image, imageIndex) => `
+        <button class="gallery-item" type="button" data-gallery-item data-media-label="${getProjectInitials(project.title)} ${imageIndex + 1}" aria-label="${project.title} ${labels.gallery} ${imageIndex + 1}">
+          <img src="../${image}" alt="" loading="lazy" onerror="this.hidden=true;">
+        </button>
+      `)
+      .join("");
+  }
+}
+
+function bindGallery() {
+  document.querySelectorAll("[data-gallery-item]").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("is-expanded");
+    });
   });
 }
 
@@ -312,25 +583,31 @@ function setLanguage(lang) {
   renderCV(content);
   renderContact(content);
   renderFooter(content);
+  renderProjectPage();
   updateLanguageToggle();
   bindNavigationLinks();
   bindMailLinks();
   bindFooterLanguage();
+  bindGallery();
   initRevealObserver();
   initSectionObserver();
   updateHeaderState();
 }
 
-navToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("is-open");
-  navToggle.classList.toggle("is-active", isOpen);
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-  document.body.classList.toggle("nav-open", isOpen);
-});
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("is-open");
+    navToggle.classList.toggle("is-active", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open", isOpen);
+  });
+}
 
-languageToggle.addEventListener("click", () => {
-  setLanguage(currentLanguage === "de" ? "en" : "de");
-});
+if (languageToggle) {
+  languageToggle.addEventListener("click", () => {
+    setLanguage(currentLanguage === "de" ? "en" : "de");
+  });
+}
 
 window.addEventListener("scroll", updateHeaderState, { passive: true });
 window.setLanguage = setLanguage;
