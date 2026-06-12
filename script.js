@@ -537,6 +537,10 @@ function renderProjectPage() {
         <span>${labels.previous}</span>
         <strong>${previousProject.title}</strong>
       </a>
+      <a class="project-nav-link project-nav-home" href="../index.html#projects">
+        <span>${labels.backToPortfolio}</span>
+        <strong>${window.siteContent[currentLanguage].projects.heading}</strong>
+      </a>
       <a class="project-nav-link is-next" href="${nextProject.href}">
         <span>${labels.next}</span>
         <strong>${nextProject.title}</strong>
