@@ -185,8 +185,19 @@ function renderProjects(content) {
           </div>
           <h3>${project.title}</h3>
           <p>${project.description}</p>
-          <div class="tag-list">
-            ${project.technologies.map((technology) => `<span>${technology}</span>`).join("")}
+          <div class="project-card-tool-grid">
+            ${project.technologies.map((technology) => {
+              const logo = getProjectToolLogo(technology);
+              return `
+                <span class="project-card-tool-tile">
+                  <span class="project-card-tool-logo">
+                    ${logo ? `<img src="${logo}" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">` : ""}
+                    <span ${logo ? "hidden" : ""}>${getToolFallback(technology)}</span>
+                  </span>
+                  <span class="project-card-tool-name">${technology}</span>
+                </span>
+              `;
+            }).join("")}
           </div>
           <a class="text-link" href="${project.href}" aria-label="${project.linkLabel}">${content.projects.detailLabel}</a>
         </div>

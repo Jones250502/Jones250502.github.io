@@ -1246,6 +1246,61 @@ h3 {
   padding: 7px 10px;
 }
 
+.project-card-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0 22px;
+}
+
+.project-card-tool-tile {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  padding: 7px;
+  border: 1px solid rgba(238, 246, 247, 0.11);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: rgba(7, 16, 20, 0.42);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-card-tool-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(214, 169, 95, 0.34);
+  background: rgba(12, 25, 31, 0.68);
+}
+
+.project-card-tool-logo {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(214, 169, 95, 0.22);
+  border-radius: var(--radius);
+  color: var(--accent);
+  background: rgba(214, 169, 95, 0.08);
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.project-card-tool-logo img {
+  max-width: 21px;
+  max-height: 21px;
+}
+
+.project-card-tool-name {
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .text-link {
   color: var(--accent);
   font-weight: 800;
@@ -1729,6 +1784,10 @@ h3 {
   .project-topline {
     flex-direction: column;
     gap: 4px;
+  }
+
+  .project-card-tool-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-page {
