@@ -213,14 +213,7 @@ function renderCV(content) {
     return;
   }
 
-  highlights.innerHTML = content.cv.highlights
-    .map((highlight) => `
-      <article class="cv-highlight">
-        <span></span>
-        <p>${highlight}</p>
-      </article>
-    `)
-    .join("");
+  highlights.innerHTML = `<p>${content.cv.subtitle}</p>`;
 
   actions.innerHTML = `
     <a class="cv-button" href="${content.cv.pdfPath}" target="_blank" rel="noopener noreferrer">${content.cv.buttons.view}</a>

@@ -29,7 +29,7 @@ const siteContent = {
       kicker: "Hi, Ich bin",
       name: "Jonas Fritsch",
       degree: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering\nTechnische Universität München",
-      focus: "Robotik • Automatisierung • Prototyping • Regelung",
+      focus: "ROBOTIK · AUTOMATISIERUNG · PROTOTYPING · MOTION CONTROL",
       actionsLabel: "Hero Navigation",
       buttons: [
         { label: "Projekte", href: "#projects", style: "primary" },
@@ -42,8 +42,9 @@ const siteContent = {
       heading: "Über mich",
       cardTitle: "Robotik und technische Entwicklung",
       paragraphs: [
-        "Mich begeistert Robotik und technische Entwicklung, bei der Ideen nicht nur theoretisch bestehen, sondern als reale Systeme sichtbar werden.",
-        "Mein Interesse liegt besonders in der Verbindung von Mechanik, Elektronik und Software. Ich arbeite gerne interdisziplinär, vom Konzept über Konstruktion und Steuerung bis hin zu Prototyping und experimenteller Validierung."
+        "Mich begeistert die Entwicklung technischer Systeme, die über Simulationen und Konzepte hinausgehen und als reale Prototypen umgesetzt werden.",
+        "Mein Schwerpunkt liegt an der Schnittstelle von Mechanik, Elektronik und Software. Von der CAD Konstruktion über Steuerungsentwicklung und Robotiksoftware bis hin zu Aufbau, Test und Validierung arbeite ich gerne an interdisziplinären Projekten mit direktem Praxisbezug.",
+        "Während meines Studiums und in eigenen Projekten habe ich unter anderem an Industrierobotern, autonomen Planungssystemen, Robotiksteuerungen und Prototypen gearbeitet. Besonders interessieren mich Robotik, Automatisierung und technische Entwicklung im industriellen Umfeld."
       ]
     },
     toolbox: {
@@ -77,21 +78,21 @@ const siteContent = {
           logoPath: "assets/logos/Logo_KIT.svg",
           label: "Bachelor",
           title: "Karlsruher Institut für Technologie (KIT)",
-          text: "Bachelor Maschinenbau mit technischer Grundlage in Konstruktion, Mechanik und ingenieurwissenschaftlichem Denken."
+          text: "Bachelor Maschinenbau mit Vertiefung in Mechatronik und Robotik"
         },
         {
           logo: "TUM",
           logoPath: "assets/logos/Logo_of_the_Technical_University_of_Munich.svg",
           label: "Master",
           title: "Technische Universität München (TUM)",
-          text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering mit Fokus auf Robotik, Systeme und Regelung."
+          text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering mit Schwerpunkt Mechanik und Regelung."
         },
         {
           logo: "UPC",
           logoPath: "assets/logos/Logo_UPC.svg",
           label: "International",
           title: "Universitat Politècnica de Catalunya (UPC)",
-          text: "Auslandssemester mit internationaler Erfahrung und akademischem Austausch."
+          text: "Auslandssemester in Barcelona \n Kurse: Process Automation, Robotic Systems"
         }
       ]
     },
@@ -155,15 +156,6 @@ const siteContent = {
           href: "projects/moveo-robot.html"
         },
         {
-          title: "CNC Fräse Eigenbau",
-          category: "Schulprojekt",
-          cover: "assets/projects/cnc-fraese/cover.jpg",
-          description: "Eigenbau einer CNC Fräse mit Fokus auf mechanischem Aufbau, Antriebstechnik und praktischer Umsetzung.",
-          technologies: ["CNC", "Mechanik", "Konstruktion", "Prototyping"],
-          linkLabel: "Mehr erfahren über CNC Fräse Eigenbau",
-          href: "projects/cnc-fraese.html"
-        },
-        {
           title: "Offline Roboterprogrammierung",
           category: "Firmenprojekt",
           cover: "assets/projects/ccloos-c4-compact/cover.jpg",
@@ -195,7 +187,7 @@ const siteContent = {
     cv: {
       kicker: "Lebenslauf",
       title: "Lebenslauf",
-      subtitle: "Ausbildung, technische Schwerpunkte und Engineering Erfahrung im Überblick.",
+      subtitle: "Mein vollständiger Lebenslauf mit Ausbildung, praktischer Erfahrung, und technischen Schwerpunkten.",
       pdfPath: "assets/documents/CV_Jonas_Lato.pdf",
       buttons: {
         view: "CV ansehen",
@@ -211,7 +203,8 @@ const siteContent = {
     },
     contact: {
       eyebrow: "Kontakt",
-      heading: "Interesse an Robotik, Automatisierung oder technischer Entwicklung? Ich freue mich über Austausch und neue Projekte.",
+      heading: "Vielen dank für Ihr Interesse an meinem Portfolio. Bei Fragen kontaktieren Sie mich gerne.",
+    
       items: [
         { label: "Email", value: "fritsch.jonasmichael@gmail.com", href: "mailto:fritsch.jonasmichael@gmail.com", icon: "email" },
         { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" }
@@ -269,7 +262,7 @@ const siteContent = {
       kicker: "Hi, I'm",
       name: "Jonas Fritsch",
       degree: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering\nTechnical University of Munich",
-      focus: "Robotics • Automation • Prototyping • Control Systems",
+      focus: "ROBOTICS · AUTOMATION · PROTOTYPING · MOTION CONTROL",
       actionsLabel: "Hero navigation",
       buttons: [
         { label: "Projects", href: "#projects", style: "primary" },
@@ -282,8 +275,9 @@ const siteContent = {
       heading: "About me",
       cardTitle: "Robotics and technical development",
       paragraphs: [
-        "I am fascinated by robotics and technical development where ideas do not just work in theory, but become visible as real systems.",
-        "I am especially interested in the connection between mechanics, electronics and software. I like working across disciplines, from concept, design and control to prototyping and experimental validation."
+        "I am fascinated by the development of technical systems that go beyond simulations and concepts and are implemented as real prototypes.",
+        "My focus lies at the interface of mechanics, electronics and software. From CAD design, control development and robotics software to assembly, testing and validation, I enjoy working on interdisciplinary projects with a direct practical focus.",
+        "During my studies and personal projects, I have worked on industrial robots, autonomous planning systems, robot control systems and prototypes, among other topics. I am particularly interested in robotics, automation and technical development in industrial environments."
       ]
     },
     toolbox: {
@@ -317,21 +311,21 @@ const siteContent = {
           logoPath: "assets/logos/Logo_KIT.svg",
           label: "Bachelor",
           title: "Karlsruhe Institute of Technology (KIT)",
-          text: "Bachelor's degree in mechanical engineering with a technical foundation in design, mechanics and engineering thinking."
+          text: "Bachelor's degree in Mechanical Engineering with specialization in mechatronics and robotics."
         },
         {
           logo: "TUM",
           logoPath: "assets/logos/Logo_of_the_Technical_University_of_Munich.svg",
           label: "Master",
           title: "Technical University of Munich (TUM)",
-          text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering with a focus on robotics, systems and control."
+          text: "M.Sc. Mechatronics, Robotics and Biomechanical Engineering with focus on mechanics and control."
         },
         {
           logo: "UPC",
           logoPath: "assets/logos/Logo_UPC.svg",
           label: "International",
           title: "Universitat Politècnica de Catalunya (UPC)",
-          text: "Semester abroad with international experience and academic exchange."
+          text: "Semester abroad in Barcelona \n Courses: Process Automation, Robotic Systems"
         }
       ]
     },
@@ -395,15 +389,6 @@ const siteContent = {
           href: "projects/moveo-robot.html"
         },
         {
-          title: "Custom CNC Router",
-          category: "School Project",
-          cover: "assets/projects/cnc-fraese/cover.jpg",
-          description: "Self-built CNC router with focus on mechanical structure, drive technology and practical implementation.",
-          technologies: ["CNC", "Mechanics", "Design", "Prototyping"],
-          linkLabel: "Learn more about Custom CNC Router",
-          href: "projects/cnc-fraese.html"
-        },
-        {
           title: "Offline Robot Programming",
           category: "Company Project",
           cover: "assets/projects/ccloos-c4-compact/cover.jpg",
@@ -435,7 +420,7 @@ const siteContent = {
     cv: {
       kicker: "Resume",
       title: "Resume",
-      subtitle: "Education, technical focus areas and engineering experience at a glance.",
+      subtitle: "My complete resume with education, practical experience, and technical focus areas.",
       pdfPath: "assets/documents/CV_Jonas_light_en.pdf",
       buttons: {
         view: "View CV",
@@ -451,7 +436,7 @@ const siteContent = {
     },
     contact: {
       eyebrow: "Contact",
-      heading: "Interested in robotics, automation or technical development? I am always open to exchange and new projects.",
+      heading: "Thank you for your interest in my portfolio. Please feel free to contact me if you have any questions.",
       items: [
         { label: "Email", value: "fritsch.jonasmichael@gmail.com", href: "mailto:fritsch.jonasmichael@gmail.com", icon: "email" },
         { label: "LinkedIn", value: "Jonas Fritsch", href: "https://www.linkedin.com/in/jonas-fritsch-39929822a?utm_source=share_via&utm_content=profile&utm_medium=nenber_andorid", icon: "linkedin" }
@@ -616,26 +601,6 @@ const projectDetails = {
         galleryImages: ["assets/projects/moveo-robot/gallery-01.jpg", "assets/projects/moveo-robot/gallery-02.jpg", "assets/projects/moveo-robot/gallery-03.jpg"]
       },
       {
-        slug: "cnc-fraese",
-        href: "cnc-fraese.html",
-        title: "CNC Fräse Eigenbau",
-        subtitle: "Mechanischer Aufbau und praktische Umsetzung",
-        category: "Schulprojekt",
-        type: "Schulprojekt",
-        period: "Platzhalter Zeitraum",
-        status: "Abgeschlossen",
-        cover: "assets/projects/cnc-fraese/cover.jpg",
-        summary: "Eigenbau einer CNC Fräse mit Fokus auf mechanischem Aufbau, Antriebstechnik und Fertigung. Das Projekt verbindet Konstruktion, Montage und praktische Tests.",
-        tools: ["Fusion 360", "CNC", "Mechanik", "Arduino"],
-        timeline: [
-          { icon: "01", title: "Konzept", paragraphs: ["Definition von Arbeitsraum, Aufbauprinzip und mechanischen Anforderungen der Fräse."], image: "assets/projects/cnc-fraese/timeline-01.jpg", tags: ["Konzept", "CNC"] },
-          { icon: "02", title: "Mechanik", paragraphs: ["Auslegung und Montage der Struktur, Führungen und Antriebselemente."], image: "assets/projects/cnc-fraese/timeline-02.jpg", tags: ["Mechanik", "Konstruktion"] },
-          { icon: "03", title: "Fertigung", paragraphs: ["Herstellung und Anpassung der Bauteile sowie praktische Montage des Systems."], image: "assets/projects/cnc-fraese/timeline-03.jpg", tags: ["Fertigung", "Eigenbau"] },
-          { icon: "04", title: "Ergebnis", paragraphs: ["Erste Funktionstests und Bewertung der Genauigkeit und Stabilität."], image: "assets/projects/cnc-fraese/timeline-04.jpg", tags: ["Testing", "Prototyping"] }
-        ],
-        galleryImages: ["assets/projects/cnc-fraese/gallery-01.jpg", "assets/projects/cnc-fraese/gallery-02.jpg", "assets/projects/cnc-fraese/gallery-03.jpg"]
-      },
-      {
         slug: "ccloos-c4-compact",
         href: "ccloos-c4-compact.html",
         title: "Offline Roboterprogrammierung",
@@ -715,7 +680,6 @@ const projectDetails = {
 
 projectDetails.en.items = projectDetails.de.items.map((project) => {
   const translatedTitle = {
-    "CNC Fräse Eigenbau": "Custom CNC Router",
     "Moveo Robotermodell": "Moveo Robot Model",
     "Taktile Sensorhaut": "Tactile Sensing Skin",
     "Robot Planning mit Reinforcement Learning": "Robot Planning with Reinforcement Learning",

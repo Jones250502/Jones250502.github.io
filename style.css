@@ -1306,67 +1306,66 @@ h3 {
   font-weight: 800;
 }
 
+.cv-section {
+  padding-top: 118px;
+  padding-bottom: 118px;
+}
+
+.cv-section .section-heading {
+  max-width: 760px;
+  margin-bottom: 34px;
+  text-align: left;
+}
+
+.cv-section .section-heading h2 {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .cv-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 34px;
   align-items: center;
-  padding: 34px;
+  padding: 30px 34px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background:
-    radial-gradient(circle at 88% 12%, rgba(214, 169, 95, 0.12), transparent 18rem),
-    linear-gradient(145deg, rgba(16, 32, 41, 0.84), rgba(9, 18, 23, 0.9));
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.24);
+    radial-gradient(circle at 92% 8%, rgba(214, 169, 95, 0.1), transparent 16rem),
+    linear-gradient(145deg, rgba(16, 32, 41, 0.72), rgba(9, 18, 23, 0.82));
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
 }
 
 .cv-highlights {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  display: block;
+  max-width: 680px;
 }
 
-.cv-highlight {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 12px;
-  align-items: start;
-  padding: 16px;
-  border: 1px solid rgba(238, 246, 247, 0.11);
-  border-radius: var(--radius);
-  background: rgba(7, 16, 20, 0.46);
-}
-
-.cv-highlight span {
-  width: 9px;
-  height: 9px;
-  margin-top: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 18px rgba(214, 169, 95, 0.34);
-}
-
-.cv-highlight p {
+.cv-highlights p {
   margin-bottom: 0;
   color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.14rem);
 }
 
 .cv-actions {
-  display: grid;
-  gap: 12px;
-  min-width: 190px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 14px;
 }
 
 .cv-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 20px;
+  min-width: 230px;
+  min-height: 58px;
+  padding: 0 28px;
   border: 1px solid transparent;
   border-radius: var(--radius);
   color: #120d05;
   background: var(--accent);
+  font-size: 0.98rem;
   font-weight: 800;
   box-shadow: 0 14px 36px rgba(214, 169, 95, 0.22);
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -1388,6 +1387,10 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(340px, 420px));
   justify-content: center;
   gap: 18px;
+}
+
+.contact .section-heading h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.9rem);
 }
 
 .contact-item {
@@ -1636,12 +1639,12 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .cv-highlights {
-    grid-template-columns: 1fr;
-  }
-
   .cv-actions {
     width: 100%;
+  }
+
+  .cv-button {
+    min-width: min(100%, 320px);
   }
 
   .project-hero-grid,
@@ -1788,6 +1791,15 @@ h3 {
 
   .project-card-tool-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cv-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cv-button {
+    width: 100%;
   }
 
   .project-page {
