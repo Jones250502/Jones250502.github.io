@@ -21,7 +21,7 @@ const kukaExternalControlContent = {
           "Zu Beginn stand die Analyse der Roboterzelle, der vorhandenen Schnittstellen und der Anforderungen an eine externe Steuerung.",
           "Wichtig war ein Aufbau, der spätere Tests am realen Roboter nachvollziehbar und kontrollierbar macht."
         ],
-        image: "assets/projects/kuka-external-control/timeline-01.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-01.jpg"],
         tags: ["KUKA Robot", "Roboterzelle", "Systemanalyse"]
       },
       {
@@ -30,7 +30,7 @@ const kukaExternalControlContent = {
         paragraphs: [
           "Die Kommunikation zwischen PC und Roboter wurde so aufgebaut, dass Bewegungsbefehle und Statusinformationen zuverlässig übertragen werden können."
         ],
-        image: "assets/projects/kuka-external-control/timeline-02.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-02.jpg"],
         tags: ["KRL", "KUKA Schnittstelle", "Datenkommunikation"]
       },
       {
@@ -40,7 +40,7 @@ const kukaExternalControlContent = {
           "Für die Bedienung entstand eine eigene Oberfläche zur Steuerung, Überwachung und Auswertung der Roboterbewegung.",
           "Die GUI diente als Brücke zwischen Bahnplanung, Parametern und praktischem Testbetrieb."
         ],
-        image: "assets/projects/kuka-external-control/timeline-03.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-03.jpg"],
         tags: ["C#", "Visual Studio", "GUI", "Bahnparameter"]
       },
       {
@@ -50,7 +50,7 @@ const kukaExternalControlContent = {
           "Die entwickelten Abläufe wurden am realen System getestet und schrittweise verbessert.",
           "Dabei standen reproduzierbare Bewegungen, sichere Testschritte und die Bewertung der Steuerlogik im Vordergrund."
         ],
-        image: "assets/projects/kuka-external-control/timeline-04.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-04.jpg"],
         tags: ["MATLAB", "Robot Control", "Validierung", "Testing"]
       }
     ],
@@ -82,7 +82,7 @@ const kukaExternalControlContent = {
           "The project started with an analysis of the robot cell, available interfaces and requirements for external control.",
           "A key goal was to create a setup that made later tests on the real robot traceable and controlled."
         ],
-        image: "assets/projects/kuka-external-control/timeline-01.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-01.jpg"],
         tags: ["KUKA Robot", "Robot Cell", "System Analysis"]
       },
       {
@@ -91,7 +91,7 @@ const kukaExternalControlContent = {
         paragraphs: [
           "The communication between PC and robot was structured to transfer motion commands and status information reliably."
         ],
-        image: "assets/projects/kuka-external-control/timeline-02.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-02.jpg"],
         tags: ["KRL", "KUKA Interface", "Data Communication"]
       },
       {
@@ -101,7 +101,7 @@ const kukaExternalControlContent = {
           "A custom interface was developed for controlling, monitoring and evaluating robot motion.",
           "The GUI connected path planning, parameters and practical test operation."
         ],
-        image: "assets/projects/kuka-external-control/timeline-03.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-03.jpg"],
         tags: ["C#", "Visual Studio", "GUI", "Path Parameters"]
       },
       {
@@ -111,7 +111,7 @@ const kukaExternalControlContent = {
           "The developed workflows were tested on the real system and improved step by step.",
           "The focus was on reproducible motions, safe test procedures and evaluation of the control logic."
         ],
-        image: "assets/projects/kuka-external-control/timeline-04.jpg",
+        images: ["assets/projects/kuka-external-control/timeline-04.jpg"],
         tags: ["MATLAB", "Robot Control", "Validation", "Testing"]
       }
     ],

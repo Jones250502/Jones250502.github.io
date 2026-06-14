@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title">
+  <title id="title">Parallel SCARA demo image 01</title>
+  <rect width="900" height="650" fill="#0c1b22"/>
+  <path d="M0 460 C190 390 330 515 520 430 C670 365 760 245 900 285 L900 650 L0 650 Z" fill="#142c36"/>
+  <g stroke="#d6a95f" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M260 355 L410 235 L580 355"/>
+    <path d="M410 235 L410 430"/>
+    <circle cx="260" cy="355" r="42"/>
+    <circle cx="580" cy="355" r="42"/>
+    <circle cx="410" cy="235" r="34"/>
+  </g>
+  <g stroke="#eef6f7" stroke-opacity=".13" stroke-width="1">
+    <path d="M0 80 H900 M0 160 H900 M0 240 H900 M0 320 H900 M0 400 H900 M0 480 H900"/>
+    <path d="M100 0 V650 M200 0 V650 M300 0 V650 M400 0 V650 M500 0 V650 M600 0 V650 M700 0 V650 M800 0 V650"/>
+  </g>
+  <text x="48" y="78" fill="#eef6f7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">KINEMATICS</text>
+  <text x="48" y="122" fill="#d6a95f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">1 IMAGE LAYOUT</text>
+</svg>

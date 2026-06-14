@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title">
+  <title id="title">Parallel SCARA demo image 07</title>
+  <rect width="900" height="650" fill="#081319"/>
+  <g stroke="#eef6f7" stroke-opacity=".7" stroke-width="5" fill="none">
+    <path d="M180 360 H720"/>
+    <path d="M260 360 V250 H640 V360"/>
+    <path d="M335 250 V190 H565 V250"/>
+  </g>
+  <g fill="#d6a95f">
+    <circle cx="260" cy="360" r="20"/>
+    <circle cx="640" cy="360" r="20"/>
+    <circle cx="450" cy="190" r="20"/>
+  </g>
+  <text x="52" y="82" fill="#eef6f7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">LINKAGE</text>
+  <text x="52" y="126" fill="#d6a95f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">JOINT DETAIL</text>
+</svg>

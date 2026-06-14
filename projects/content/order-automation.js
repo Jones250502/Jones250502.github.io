@@ -13,10 +13,10 @@ const orderAutomationContent = {
     focus: ["Python", "Power Automate", "ERP", "Automation"],
     tools: ["Python", "Power Automate", "ERP", "Automation"],
     timeline: [
-      { icon: "01", title: "Prozessanalyse", paragraphs: ["Analyse der vorhandenen Auftragsdaten und Identifikation wiederkehrender manueller Schritte."], image: "assets/projects/order-automation/timeline-01.jpg", tags: ["Prozessanalyse", "ERP", "Daten"] },
-      { icon: "02", title: "Extraktion", paragraphs: ["Automatisierte Erfassung relevanter Informationen aus strukturierten und halbstrukturierten Quellen."], image: "assets/projects/order-automation/timeline-02.jpg", tags: ["Python", "Datenextraktion", "Automation"] },
-      { icon: "03", title: "Logik", paragraphs: ["Abbildung von Regeln und Prüfungen für eine zuverlässige Weiterverarbeitung."], image: "assets/projects/order-automation/timeline-03.jpg", tags: ["Power Automate", "Workflow", "Prozesslogik"] },
-      { icon: "04", title: "Übergabe", paragraphs: ["Vorbereitung der Daten für bestehende Systeme und Reduktion manueller Zwischenschritte."], image: "assets/projects/order-automation/timeline-04.jpg", tags: ["ERP", "Integration", "Automation"] }
+      { icon: "01", title: "Prozessanalyse", paragraphs: ["Analyse der vorhandenen Auftragsdaten und Identifikation wiederkehrender manueller Schritte."], images: ["assets/projects/order-automation/timeline-01.jpg"], tags: ["Prozessanalyse", "ERP", "Daten"] },
+      { icon: "02", title: "Extraktion", paragraphs: ["Automatisierte Erfassung relevanter Informationen aus strukturierten und halbstrukturierten Quellen."], images: ["assets/projects/order-automation/timeline-02.jpg"], tags: ["Python", "Datenextraktion", "Automation"] },
+      { icon: "03", title: "Logik", paragraphs: ["Abbildung von Regeln und Prüfungen für eine zuverlässige Weiterverarbeitung."], images: ["assets/projects/order-automation/timeline-03.jpg"], tags: ["Power Automate", "Workflow", "Prozesslogik"] },
+      { icon: "04", title: "Übergabe", paragraphs: ["Vorbereitung der Daten für bestehende Systeme und Reduktion manueller Zwischenschritte."], images: ["assets/projects/order-automation/timeline-04.jpg"], tags: ["ERP", "Integration", "Automation"] }
     ],
     galleryImages: ["assets/projects/order-automation/gallery-01.jpg", "assets/projects/order-automation/gallery-02.jpg", "assets/projects/order-automation/gallery-03.jpg"]
   },
@@ -34,10 +34,10 @@ const orderAutomationContent = {
     focus: ["Python", "Power Automate", "ERP", "Automation"],
     tools: ["Python", "Power Automate", "ERP", "Automation"],
     timeline: [
-      { icon: "01", title: "Process Analysis", paragraphs: ["Analyzing existing order data and identifying recurring manual steps."], image: "assets/projects/order-automation/timeline-01.jpg", tags: ["Process Analysis", "ERP", "Data"] },
-      { icon: "02", title: "Extraction", paragraphs: ["Automated capture of relevant information from structured and semi-structured sources."], image: "assets/projects/order-automation/timeline-02.jpg", tags: ["Python", "Data Extraction", "Automation"] },
-      { icon: "03", title: "Logic", paragraphs: ["Mapping rules and checks for reliable further processing."], image: "assets/projects/order-automation/timeline-03.jpg", tags: ["Power Automate", "Workflow", "Process Logic"] },
-      { icon: "04", title: "Handover", paragraphs: ["Preparing data for existing systems and reducing manual intermediate steps."], image: "assets/projects/order-automation/timeline-04.jpg", tags: ["ERP", "Integration", "Automation"] }
+      { icon: "01", title: "Process Analysis", paragraphs: ["Analyzing existing order data and identifying recurring manual steps."], images: ["assets/projects/order-automation/timeline-01.jpg"], tags: ["Process Analysis", "ERP", "Data"] },
+      { icon: "02", title: "Extraction", paragraphs: ["Automated capture of relevant information from structured and semi-structured sources."], images: ["assets/projects/order-automation/timeline-02.jpg"], tags: ["Python", "Data Extraction", "Automation"] },
+      { icon: "03", title: "Logic", paragraphs: ["Mapping rules and checks for reliable further processing."], images: ["assets/projects/order-automation/timeline-03.jpg"], tags: ["Power Automate", "Workflow", "Process Logic"] },
+      { icon: "04", title: "Handover", paragraphs: ["Preparing data for existing systems and reducing manual intermediate steps."], images: ["assets/projects/order-automation/timeline-04.jpg"], tags: ["ERP", "Integration", "Automation"] }
     ],
     galleryImages: ["assets/projects/order-automation/gallery-01.jpg", "assets/projects/order-automation/gallery-02.jpg", "assets/projects/order-automation/gallery-03.jpg"]
   }

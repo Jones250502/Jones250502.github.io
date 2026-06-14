@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title">
+  <title id="title">Parallel SCARA demo image 04</title>
+  <rect width="900" height="650" fill="#111f24"/>
+  <path d="M150 460 C250 330 340 410 450 290 C560 170 650 250 760 145" fill="none" stroke="#d6a95f" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#eef6f7">
+    <circle cx="150" cy="460" r="16"/>
+    <circle cx="450" cy="290" r="16"/>
+    <circle cx="760" cy="145" r="16"/>
+  </g>
+  <text x="52" y="82" fill="#eef6f7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">PATH</text>
+  <text x="52" y="126" fill="#d6a95f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">MOTION TRACE</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title">
+  <title id="title">Parallel SCARA demo image 02</title>
+  <rect width="900" height="650" fill="#10202a"/>
+  <circle cx="660" cy="190" r="160" fill="#214252"/>
+  <path d="M180 445 H720" stroke="#d6a95f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M250 445 L340 250 H560 L650 445" stroke="#eef6f7" stroke-opacity=".76" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="52" y="82" fill="#eef6f7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">FRAME</text>
+  <text x="52" y="126" fill="#d6a95f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">MECHANICAL STRUCTURE</text>
+</svg>

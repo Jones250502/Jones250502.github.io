@@ -1060,6 +1060,162 @@ h3 {
 
 .project-timeline-media {
   min-height: 300px;
+  aspect-ratio: 4 / 3;
+}
+
+.timeline-image-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+}
+
+.timeline-image-grid.is-count-1 {
+  gap: 0;
+  padding: 0;
+}
+
+.timeline-image-grid.is-count-2,
+.timeline-image-grid.is-count-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.timeline-image-grid.is-count-3 {
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.timeline-image-grid.is-count-3 .timeline-image-cell:first-child {
+  grid-row: 1 / -1;
+}
+
+.timeline-image-cell {
+  position: relative;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 6px);
+  background: var(--panel-strong);
+  cursor: zoom-in;
+}
+
+.timeline-image-grid.is-count-1 .timeline-image-cell {
+  border: 0;
+  border-radius: 0;
+}
+
+.timeline-image-cell img {
+  transition: filter 0.22s ease, transform 0.28s ease;
+}
+
+.timeline-image-cell:hover img {
+  filter: brightness(1.1) contrast(1.06);
+  transform: scale(1.03);
+}
+
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  place-items: center;
+  padding: 28px;
+}
+
+.project-lightbox.is-open {
+  display: grid;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.project-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(2, 7, 10, 0.88);
+  backdrop-filter: blur(12px);
+  cursor: zoom-out;
+}
+
+.project-lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: min(92vw, 1180px);
+  height: min(84vh, 820px);
+}
+
+.project-lightbox-dialog img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid rgba(238, 246, 247, 0.14);
+  border-radius: var(--radius);
+  object-fit: contain;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.54);
+}
+
+.project-lightbox-close,
+.project-lightbox-nav {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(238, 246, 247, 0.2);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(7, 16, 20, 0.66);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-lightbox-close {
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  font-size: 1.35rem;
+}
+
+.project-lightbox-nav {
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  transform: translateY(-50%);
+}
+
+.project-lightbox-close:hover,
+.project-lightbox-nav:hover {
+  border-color: rgba(214, 169, 95, 0.48);
+  background: rgba(7, 16, 20, 0.84);
+}
+
+.project-lightbox-nav.is-prev {
+  left: -62px;
+}
+
+.project-lightbox-nav.is-next {
+  right: -62px;
+}
+
+.project-lightbox-count {
+  position: absolute;
+  bottom: -34px;
+  left: 50%;
+  color: rgba(238, 246, 247, 0.68);
+  font-size: 0.82rem;
+  font-weight: 800;
+  transform: translateX(-50%);
 }
 
 .project-timeline-content {
@@ -1692,6 +1848,19 @@ h3 {
     order: 0;
   }
 
+  .project-lightbox-dialog {
+    width: min(88vw, 760px);
+    height: min(78vh, 680px);
+  }
+
+  .project-lightbox-nav.is-prev {
+    left: 10px;
+  }
+
+  .project-lightbox-nav.is-next {
+    right: 10px;
+  }
+
   .project-nav-link.is-next {
     text-align: left;
   }
@@ -1842,6 +2011,29 @@ h3 {
   .project-timeline-media,
   .gallery-item {
     min-height: 240px;
+  }
+
+  .timeline-image-grid {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .timeline-image-grid.is-count-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .timeline-image-grid.is-count-3 .timeline-image-cell:first-child {
+    grid-row: auto;
+  }
+
+  .project-lightbox-close {
+    top: -52px;
+    right: 0;
+  }
+
+  .project-lightbox-nav {
+    width: 40px;
+    height: 40px;
   }
 
   .project-tools {

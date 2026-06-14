@@ -1,6 +1,10 @@
 let currentLanguage = "de";
 let revealObserver;
 let sectionObserver;
+let projectLightboxState = {
+  images: [],
+  index: 0
+};
 
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
@@ -162,6 +166,11 @@ function getProjectInitials(title) {
     .map((word) => word[0])
     .join("")
     .toUpperCase();
+}
+
+function getTimelineImages(item) {
+  const images = Array.isArray(item.images) && item.images.length ? item.images : [item.image];
+  return images.filter(Boolean).slice(0, 4);
 }
 
 function renderProjects(content) {
@@ -505,10 +514,20 @@ function renderProjectPage() {
   const timeline = document.querySelector("[data-project-timeline]");
   if (timeline) {
     timeline.innerHTML = project.timeline
-      .map((item, itemIndex) => `
+      .map((item, itemIndex) => {
+        const images = getTimelineImages(item);
+        const gridClass = `is-count-${Math.max(images.length, 1)}`;
+
+        return `
         <article class="project-timeline-item reveal ${itemIndex % 2 ? "is-reversed" : ""}">
-          <div class="project-timeline-media" data-media-label="${getProjectInitials(item.title)}">
-            <img src="../${item.image}" alt="${item.title}" loading="lazy" onerror="this.hidden=true;">
+          <div class="project-timeline-media" data-media-label="${getProjectInitials(item.title)}" data-timeline-media>
+            <div class="timeline-image-grid ${gridClass}">
+              ${images.map((image, imageIndex) => `
+                <button class="timeline-image-cell" type="button" data-lightbox-open data-full-src="../${image}" data-image-index="${imageIndex}" aria-label="${item.title} Bild ${imageIndex + 1}">
+                  <img src="../${image}" alt="${item.title}" loading="lazy" onerror="this.hidden=true;">
+                </button>
+              `).join("")}
+            </div>
           </div>
           <div class="project-timeline-content">
             <span class="project-timeline-icon">${item.icon}</span>
@@ -530,7 +549,8 @@ function renderProjectPage() {
             </div>
           </div>
         </article>
-      `)
+      `;
+      })
       .join("");
   }
 
@@ -572,6 +592,138 @@ function bindGallery() {
   });
 }
 
+function getTimelineLightboxImages(media) {
+  if (!media) {
+    return [];
+  }
+
+  return Array.from(media.querySelectorAll("[data-lightbox-open]"))
+    .map((button) => button.dataset.fullSrc)
+    .filter(Boolean);
+}
+
+function ensureProjectLightbox() {
+  let lightbox = document.querySelector("[data-project-lightbox]");
+  if (lightbox) {
+    return lightbox;
+  }
+
+  lightbox = document.createElement("div");
+  lightbox.className = "project-lightbox";
+  lightbox.dataset.projectLightbox = "true";
+  lightbox.innerHTML = `
+    <button class="project-lightbox-backdrop" type="button" data-lightbox-close aria-label="Close image"></button>
+    <div class="project-lightbox-dialog" role="dialog" aria-modal="true">
+      <button class="project-lightbox-close" type="button" data-lightbox-close aria-label="Close image">×</button>
+      <button class="project-lightbox-nav is-prev" type="button" data-lightbox-prev aria-label="Previous image">‹</button>
+      <img src="" alt="">
+      <button class="project-lightbox-nav is-next" type="button" data-lightbox-next aria-label="Next image">›</button>
+      <span class="project-lightbox-count"></span>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+  return lightbox;
+}
+
+function updateProjectLightbox() {
+  const lightbox = ensureProjectLightbox();
+  const image = lightbox.querySelector("img");
+  const count = lightbox.querySelector(".project-lightbox-count");
+  const hasMultipleImages = projectLightboxState.images.length > 1;
+
+  image.src = projectLightboxState.images[projectLightboxState.index] || "";
+  count.textContent = hasMultipleImages ? `${projectLightboxState.index + 1} / ${projectLightboxState.images.length}` : "";
+
+  lightbox.querySelectorAll("[data-lightbox-prev], [data-lightbox-next]").forEach((button) => {
+    button.hidden = !hasMultipleImages;
+  });
+}
+
+function openProjectLightbox(images, index) {
+  if (!images.length) {
+    return;
+  }
+
+  projectLightboxState = {
+    images,
+    index: Math.min(Math.max(index, 0), images.length - 1)
+  };
+
+  const lightbox = ensureProjectLightbox();
+  updateProjectLightbox();
+  lightbox.classList.add("is-open");
+  document.body.classList.add("lightbox-open");
+}
+
+function closeProjectLightbox() {
+  const lightbox = document.querySelector("[data-project-lightbox]");
+  if (!lightbox) {
+    return;
+  }
+
+  lightbox.classList.remove("is-open");
+  document.body.classList.remove("lightbox-open");
+}
+
+function moveProjectLightbox(direction) {
+  if (!projectLightboxState.images.length) {
+    return;
+  }
+
+  projectLightboxState.index = (projectLightboxState.index + direction + projectLightboxState.images.length) % projectLightboxState.images.length;
+  updateProjectLightbox();
+}
+
+function bindTimelineLightbox() {
+  if (document.body.dataset.timelineLightboxBound) {
+    return;
+  }
+
+  document.body.dataset.timelineLightboxBound = "true";
+
+  document.addEventListener("click", (event) => {
+    const openButton = event.target.closest("[data-lightbox-open]");
+    const closeButton = event.target.closest("[data-lightbox-close]");
+    const previousButton = event.target.closest("[data-lightbox-prev]");
+    const nextButton = event.target.closest("[data-lightbox-next]");
+
+    if (openButton) {
+      const media = openButton.closest("[data-timeline-media]");
+      openProjectLightbox(getTimelineLightboxImages(media), Number(openButton.dataset.imageIndex || 0));
+      return;
+    }
+
+    if (closeButton) {
+      closeProjectLightbox();
+      return;
+    }
+
+    if (previousButton) {
+      moveProjectLightbox(-1);
+      return;
+    }
+
+    if (nextButton) {
+      moveProjectLightbox(1);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const lightbox = document.querySelector("[data-project-lightbox]");
+    if (!lightbox || !lightbox.classList.contains("is-open")) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      closeProjectLightbox();
+    } else if (event.key === "ArrowLeft") {
+      moveProjectLightbox(-1);
+    } else if (event.key === "ArrowRight") {
+      moveProjectLightbox(1);
+    }
+  });
+}
+
 function setLanguage(lang) {
   if (!window.siteContent[lang]) {
     return;
@@ -597,6 +749,7 @@ function setLanguage(lang) {
   bindMailLinks();
   bindFooterLanguage();
   bindGallery();
+  bindTimelineLightbox();
   initRevealObserver();
   initSectionObserver();
   updateHeaderState();

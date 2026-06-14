@@ -13,10 +13,10 @@ const moveoRobotContent = {
     focus: ["Arduino", "Robotik", "Steuerung", "Prototyping"],
     tools: ["Arduino", "Fusion 360", "Robotik", "VS Code"],
     timeline: [
-      { icon: "01", title: "Umbau", paragraphs: ["Analyse des vorhandenen Roboterarms und Anpassung mechanischer Komponenten für den Neuaufbau."], image: "assets/projects/moveo-robot/timeline-01.jpg", tags: ["Fusion 360", "Mechanik", "Umbau"] },
-      { icon: "02", title: "Elektronik", paragraphs: ["Integration von Antrieben und Steuerungskomponenten für erste Bewegungsversuche."], image: "assets/projects/moveo-robot/timeline-02.jpg", tags: ["Arduino", "Hardware", "Antriebstechnik"] },
-      { icon: "03", title: "Steuerung", paragraphs: ["Entwicklung einer einfachen Steuerlogik für Achsbewegungen und Tests am Modell."], image: "assets/projects/moveo-robot/timeline-03.jpg", tags: ["VS Code", "Robot Control", "Steuerung"] },
-      { icon: "04", title: "Inbetriebnahme", paragraphs: ["Schrittweises Testen und Verbessern der mechanischen und elektrischen Funktion."], image: "assets/projects/moveo-robot/timeline-04.jpg", tags: ["Testing", "Prototyping", "Robotik"] }
+      { icon: "01", title: "Umbau", paragraphs: ["Analyse des vorhandenen Roboterarms und Anpassung mechanischer Komponenten für den Neuaufbau."], images: ["assets/projects/moveo-robot/timeline-01.jpg"], tags: ["Fusion 360", "Mechanik", "Umbau"] },
+      { icon: "02", title: "Elektronik", paragraphs: ["Integration von Antrieben und Steuerungskomponenten für erste Bewegungsversuche."], images: ["assets/projects/moveo-robot/timeline-02.jpg"], tags: ["Arduino", "Hardware", "Antriebstechnik"] },
+      { icon: "03", title: "Steuerung", paragraphs: ["Entwicklung einer einfachen Steuerlogik für Achsbewegungen und Tests am Modell."], images: ["assets/projects/moveo-robot/timeline-03.jpg"], tags: ["VS Code", "Robot Control", "Steuerung"] },
+      { icon: "04", title: "Inbetriebnahme", paragraphs: ["Schrittweises Testen und Verbessern der mechanischen und elektrischen Funktion."], images: ["assets/projects/moveo-robot/timeline-04.jpg"], tags: ["Testing", "Prototyping", "Robotik"] }
     ],
     galleryImages: ["assets/projects/moveo-robot/gallery-01.jpg", "assets/projects/moveo-robot/gallery-02.jpg", "assets/projects/moveo-robot/gallery-03.jpg"]
   },
@@ -34,10 +34,10 @@ const moveoRobotContent = {
     focus: ["Arduino", "Robotics", "Control", "Prototyping"],
     tools: ["Arduino", "Fusion 360", "Robotics", "VS Code"],
     timeline: [
-      { icon: "01", title: "Modification", paragraphs: ["Analyzing the existing robot arm and adapting mechanical components for the rebuild."], image: "assets/projects/moveo-robot/timeline-01.jpg", tags: ["Fusion 360", "Mechanics", "Modification"] },
-      { icon: "02", title: "Electronics", paragraphs: ["Integrating drives and control components for first motion tests."], image: "assets/projects/moveo-robot/timeline-02.jpg", tags: ["Arduino", "Hardware", "Drives"] },
-      { icon: "03", title: "Control", paragraphs: ["Developing simple control logic for joint motion and model testing."], image: "assets/projects/moveo-robot/timeline-03.jpg", tags: ["VS Code", "Robot Control", "Control"] },
-      { icon: "04", title: "Commissioning", paragraphs: ["Step-by-step testing and improvement of mechanical and electrical function."], image: "assets/projects/moveo-robot/timeline-04.jpg", tags: ["Testing", "Prototyping", "Robotics"] }
+      { icon: "01", title: "Modification", paragraphs: ["Analyzing the existing robot arm and adapting mechanical components for the rebuild."], images: ["assets/projects/moveo-robot/timeline-01.jpg"], tags: ["Fusion 360", "Mechanics", "Modification"] },
+      { icon: "02", title: "Electronics", paragraphs: ["Integrating drives and control components for first motion tests."], images: ["assets/projects/moveo-robot/timeline-02.jpg"], tags: ["Arduino", "Hardware", "Drives"] },
+      { icon: "03", title: "Control", paragraphs: ["Developing simple control logic for joint motion and model testing."], images: ["assets/projects/moveo-robot/timeline-03.jpg"], tags: ["VS Code", "Robot Control", "Control"] },
+      { icon: "04", title: "Commissioning", paragraphs: ["Step-by-step testing and improvement of mechanical and electrical function."], images: ["assets/projects/moveo-robot/timeline-04.jpg"], tags: ["Testing", "Prototyping", "Robotics"] }
     ],
     galleryImages: ["assets/projects/moveo-robot/gallery-01.jpg", "assets/projects/moveo-robot/gallery-02.jpg", "assets/projects/moveo-robot/gallery-03.jpg"]
   }

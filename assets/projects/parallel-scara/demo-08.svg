@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title">
+  <title id="title">Parallel SCARA demo image 08</title>
+  <rect width="900" height="650" fill="#10222a"/>
+  <g fill="none" stroke="#d6a95f" stroke-width="8">
+    <rect x="230" y="210" width="440" height="250" rx="22"/>
+    <path d="M290 285 H610 M290 340 H610 M290 395 H520"/>
+  </g>
+  <text x="52" y="82" fill="#eef6f7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">SOFTWARE</text>
+  <text x="52" y="126" fill="#d6a95f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">CONTROL LOGIC</text>
+</svg>
