@@ -482,8 +482,19 @@ function renderProjectPage() {
 
   const focusList = document.querySelector("[data-project-focus]");
   if (focusList) {
-    focusList.innerHTML = (project.focus || [])
-      .map((item) => `<span>${item}</span>`)
+    focusList.innerHTML = (project.tools || [])
+      .map((tool) => {
+        const logo = getProjectToolLogo(tool);
+        return `
+          <span class="project-focus-tool">
+            <span class="project-focus-tool-logo">
+              ${logo ? `<img src="../${logo}" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">` : ""}
+              <span ${logo ? "hidden" : ""}>${getToolFallback(tool)}</span>
+            </span>
+            <span class="project-focus-tool-name">${tool}</span>
+          </span>
+        `;
+      })
       .join("");
   }
 

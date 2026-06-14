@@ -3,26 +3,26 @@ const kukaExternalControlContent = {
     slug: "kuka-external-control",
     href: "kuka-external-control.html",
     title: "KUKA External Control",
-    subtitle: "Externe Steuerung eines Industrieroboters",
+    subtitle: "Externe Steuerung und Kalibrierung eines KUKA Industrieroboters",
     category: "Bachelorarbeit",
     type: "Bachelorarbeit",
-    period: "Platzhalter Zeitraum",
+    period: "03/2023 – 08/2023",
     status: "Abgeschlossen",
     cover: "assets/projects/kuka-external-control/cover.jpg",
     summary:
-      "Entwicklung einer externen Steuerung für einen KUKA Industrieroboter. Der Fokus lag auf der Kommunikation zwischen Roboter und PC, einer eigenen Bedienoberfläche, Bahnplanung und experimenteller Validierung am realen System.",
-    focus: ["KUKA", "Robot Control", "C#", "MATLAB", "Bahnplanung"],
-    tools: ["KUKA", "KRL", "C#", "MATLAB", "Visual Studio"],
+      "Entwicklung einer externen Steuerungssoftware für einen KUKA KR 6 R900 2. Ein Schwerpunkt lag auf einer C# Kommunikationsbibliothek und einer grafischen Bedienoberfläche zur Steuerung des Roboters. Zusätzlich wurde ein separater Workflow entwickelt, um wechselnde Modultische und Zusatzsysteme präzise und reproduzierbar einzumessen.",
+    focus: ["KUKA", "TCP einmessen ", "C#", "MATLAB"],
+    tools: ["KRL", "C#", "MATLAB"],
     timeline: [
       {
         icon: "01",
-        title: "Ausgangssituation",
+        title: "Kommunikation und externe Steuerung",
         paragraphs: [
-          "Zu Beginn stand die Analyse der Roboterzelle, der vorhandenen Schnittstellen und der Anforderungen an eine externe Steuerung.",
-          "Wichtig war ein Aufbau, der spätere Tests am realen Roboter nachvollziehbar und kontrollierbar macht."
+          "Für die externe Steuerung des KUKA Roboters wurde eine Kommunikationsbibliothek in C# entwickelt. Ein TCP/IP Client übernahm die Kommunikation mit der Kappa K Schnittstelle und ermöglichte das Starten von Programmen, den Austausch von Variablen und das Auslesen von Statusinformationen.",
+          "Die Architektur bildete die Grundlage für die spätere Bedienoberfläche und die Integration des Roboters in automatisierte Abläufe."
         ],
-        images: ["assets/projects/kuka-external-control/timeline-01.jpg"],
-        tags: ["KUKA Robot", "Roboterzelle", "Systemanalyse"]
+        images: ["assets/projects/kuka-external-control/UML Klassendiagramm.png","assets/projects/kuka-external-control/Kommunikationsdiagramm.png"],
+        tags: ["KUKA Robot", "C#", "TCP/IP"]
       },
       {
         icon: "02",
@@ -42,16 +42,6 @@ const kukaExternalControlContent = {
         ],
         images: ["assets/projects/kuka-external-control/timeline-03.jpg"],
         tags: ["C#", "Visual Studio", "GUI", "Bahnparameter"]
-      },
-      {
-        icon: "04",
-        title: "Tests und Validierung",
-        paragraphs: [
-          "Die entwickelten Abläufe wurden am realen System getestet und schrittweise verbessert.",
-          "Dabei standen reproduzierbare Bewegungen, sichere Testschritte und die Bewertung der Steuerlogik im Vordergrund."
-        ],
-        images: ["assets/projects/kuka-external-control/timeline-04.jpg"],
-        tags: ["MATLAB", "Robot Control", "Validierung", "Testing"]
       }
     ],
     galleryImages: [

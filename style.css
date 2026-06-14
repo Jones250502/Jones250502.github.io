@@ -793,20 +793,57 @@ h3 {
 }
 
 .project-focus {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, max-content));
+  gap: 10px;
   margin: 30px 0 26px;
 }
 
-.project-focus span {
-  padding: 8px 11px;
-  border: 1px solid rgba(214, 169, 95, 0.34);
-  border-radius: 999px;
+.project-focus-tool {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 54px;
+  padding: 9px 12px;
+  border: 1px solid rgba(238, 246, 247, 0.13);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: rgba(7, 16, 20, 0.58);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-focus-tool:hover {
+  transform: translateY(-2px);
+  border-color: rgba(214, 169, 95, 0.42);
+  background: rgba(16, 32, 41, 0.72);
+}
+
+.project-focus-tool-logo {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(214, 169, 95, 0.26);
+  border-radius: calc(var(--radius) - 4px);
   color: var(--accent);
-  background: rgba(7, 16, 20, 0.56);
+  background: rgba(214, 169, 95, 0.08);
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.project-focus-tool-logo img {
+  max-width: 24px;
+  max-height: 24px;
+}
+
+.project-focus-tool-name {
+  overflow: hidden;
   font-size: 0.82rem;
   font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .project-scroll-cue {
