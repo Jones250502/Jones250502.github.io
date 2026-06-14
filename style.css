@@ -1245,14 +1245,34 @@ body.lightbox-open {
   right: -62px;
 }
 
-.project-lightbox-count {
+.project-lightbox-caption {
   position: absolute;
   bottom: -34px;
   left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: min(100%, 820px);
   color: rgba(238, 246, 247, 0.68);
+  transform: translateX(-50%);
+}
+
+.project-lightbox-description {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-lightbox-count {
+  flex: 0 0 auto;
+  color: var(--accent);
   font-size: 0.82rem;
   font-weight: 800;
-  transform: translateX(-50%);
 }
 
 .project-timeline-content {
@@ -2071,6 +2091,21 @@ body.lightbox-open {
   .project-lightbox-nav {
     width: 40px;
     height: 40px;
+  }
+
+  .project-lightbox-caption {
+    bottom: -58px;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .project-lightbox-description {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   .project-tools {

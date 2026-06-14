@@ -229,7 +229,7 @@ const siteContent = {
       languageLabel: "Sprache"
     },
     projectPage: {
-      scrollCue: "Projektverlauf ansehen"
+      scrollCue: "Projektübersicht ansehen"
     }
   },
   en: {
@@ -461,7 +461,7 @@ const siteContent = {
       languageLabel: "Language"
     },
     projectPage: {
-      scrollCue: "View project timeline"
+      scrollCue: "View project overview"
     }
   }
 };
@@ -474,7 +474,7 @@ const projectDetails = {
       period: "Zeitraum",
       status: "Status",
       technologies: "Technologien und Tools",
-      timeline: "Projektverlauf",
+      timeline: "Projektübersicht",
       gallery: "Weitere Einblicke",
       previous: "← Vorheriges Projekt",
       next: "Nächstes Projekt →"
@@ -669,7 +669,7 @@ const projectDetails = {
       period: "Period",
       status: "Status",
       technologies: "Technologies and tools",
-      timeline: "Project timeline",
+      timeline: "Project Overview",
       gallery: "Additional views",
       previous: "← Previous project",
       next: "Next project →"

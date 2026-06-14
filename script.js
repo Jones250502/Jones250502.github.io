@@ -170,7 +170,25 @@ function getProjectInitials(title) {
 
 function getTimelineImages(item) {
   const images = Array.isArray(item.images) && item.images.length ? item.images : [item.image];
-  return images.filter(Boolean).slice(0, 4);
+  return images
+    .filter(Boolean)
+    .slice(0, 4)
+    .map((image) => {
+      if (typeof image === "string") {
+        return {
+          src: image,
+          previewSrc: image,
+          alt: item.title
+        };
+      }
+
+      return {
+        src: image.src,
+        previewSrc: image.previewSrc || image.src,
+        alt: image.alt || item.title
+      };
+    })
+    .filter((image) => image.src);
 }
 
 function renderProjects(content) {
@@ -534,14 +552,14 @@ function renderProjectPage() {
           <div class="project-timeline-media" data-media-label="${getProjectInitials(item.title)}" data-timeline-media>
             <div class="timeline-image-grid ${gridClass}">
               ${images.map((image, imageIndex) => `
-                <button class="timeline-image-cell" type="button" data-lightbox-open data-full-src="../${image}" data-image-index="${imageIndex}" aria-label="${item.title} Bild ${imageIndex + 1}">
-                  <img src="../${image}" alt="${item.title}" loading="lazy" onerror="this.hidden=true;">
+                <button class="timeline-image-cell" type="button" data-lightbox-open data-full-src="../${image.src}" data-image-index="${imageIndex}" aria-label="${image.alt}">
+                  <img src="../${image.previewSrc}" alt="${image.alt}" loading="lazy" onerror="this.hidden=true;">
+                  <span class="sr-only" data-lightbox-alt>${image.alt}</span>
                 </button>
               `).join("")}
             </div>
           </div>
           <div class="project-timeline-content">
-            <span class="project-timeline-icon">${item.icon}</span>
             <h3>${item.title}</h3>
             ${item.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
             <div class="timeline-tool-grid">
@@ -609,8 +627,11 @@ function getTimelineLightboxImages(media) {
   }
 
   return Array.from(media.querySelectorAll("[data-lightbox-open]"))
-    .map((button) => button.dataset.fullSrc)
-    .filter(Boolean);
+    .map((button) => ({
+      src: button.dataset.fullSrc,
+      alt: button.querySelector("[data-lightbox-alt]")?.textContent || button.getAttribute("aria-label") || ""
+    }))
+    .filter((image) => image.src);
 }
 
 function ensureProjectLightbox() {
@@ -629,7 +650,10 @@ function ensureProjectLightbox() {
       <button class="project-lightbox-nav is-prev" type="button" data-lightbox-prev aria-label="Previous image">‹</button>
       <img src="" alt="">
       <button class="project-lightbox-nav is-next" type="button" data-lightbox-next aria-label="Next image">›</button>
-      <span class="project-lightbox-count"></span>
+      <div class="project-lightbox-caption">
+        <span class="project-lightbox-description"></span>
+        <span class="project-lightbox-count"></span>
+      </div>
     </div>
   `;
   document.body.appendChild(lightbox);
@@ -640,9 +664,13 @@ function updateProjectLightbox() {
   const lightbox = ensureProjectLightbox();
   const image = lightbox.querySelector("img");
   const count = lightbox.querySelector(".project-lightbox-count");
+  const description = lightbox.querySelector(".project-lightbox-description");
+  const currentImage = projectLightboxState.images[projectLightboxState.index] || {};
   const hasMultipleImages = projectLightboxState.images.length > 1;
 
-  image.src = projectLightboxState.images[projectLightboxState.index] || "";
+  image.src = currentImage.src || "";
+  image.alt = currentImage.alt || "";
+  description.textContent = currentImage.alt || "";
   count.textContent = hasMultipleImages ? `${projectLightboxState.index + 1} / ${projectLightboxState.images.length}` : "";
 
   lightbox.querySelectorAll("[data-lightbox-prev], [data-lightbox-next]").forEach((button) => {
