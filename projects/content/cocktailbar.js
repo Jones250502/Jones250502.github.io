@@ -44,3 +44,5 @@ const cocktailbarContent = {
 };
 
 window.projectDetailContent = cocktailbarContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[cocktailbarContent.de.slug] = cocktailbarContent;

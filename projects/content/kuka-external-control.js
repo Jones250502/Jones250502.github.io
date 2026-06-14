@@ -85,97 +85,103 @@ const kukaExternalControlContent = {
       }
     ],
     galleryImages: [
-      "assets/projects/kuka-external-control/gallery-01.jpg",
-      "assets/projects/kuka-external-control/gallery-02.jpg",
-      "assets/projects/kuka-external-control/gallery-03.jpg"
+      "assets/projects/kuka-external-control/Kalibrierung Druckbett.png",
+      "assets/projects/kuka-external-control/Mathematisch Bestimmung.png",
+      "assets/projects/kuka-external-control/Ergebnissse Workflow.png"
     ]
   },
   en: {
     slug: "kuka-external-control",
     href: "kuka-external-control.html",
     title: "KUKA External Control",
-    subtitle: "External control of an industrial robot",
+    subtitle: "External control and calibration of a KUKA industrial robot",
     category: "Bachelor Thesis",
     type: "Bachelor thesis",
-    period: "Placeholder period",
+    period: "03/2023 - 08/2023",
     status: "Completed",
-    cover: "assets/projects/kuka-external-control/cover.jpg",
+    cover: "assets/projects/kuka-external-control/RobotEinmessen.png",
     summary:
-      "Development of an external control system for a KUKA industrial robot. The focus was on communication between robot and PC, a custom user interface, path planning and experimental validation on the real system.",
-    focus: ["KUKA", "Robot Control", "C#", "MATLAB", "Path Planning"],
-    tools: ["KUKA", "KRL", "C#", "MATLAB", "Visual Studio"],
+      "Development of external control software for a KUKA KR 6 R900 2. One focus was a C# communication library and a graphical user interface for controlling the robot. In addition, a separate workflow was developed to measure changing modular tables and auxiliary systems precisely and reproducibly.",
+    focus: ["KUKA", "TCP calibration", "C#", "MATLAB"],
+    tools: ["KRL", "C#", "MATLAB"],
     timeline: [
       {
         icon: "01",
-        title: "Initial Situation",
+        title: "Communication and External Control",
         paragraphs: [
-          "The project started with an analysis of the robot cell, available interfaces and requirements for external control.",
-          "A key goal was to create a setup that made later tests on the real robot traceable and controlled."
+          "For the external control of the KUKA robot, a communication library was developed in C#. A TCP/IP client handled communication with the Kappa K interface and enabled starting programs, exchanging variables and reading status information.",
+          "This architecture formed the basis for the later user interface and for integrating the robot into automated workflows."
         ],
-        // previewSrc can later point to a manually cropped image. The lightbox always opens src.
         images: [
           {
             src: "assets/projects/kuka-external-control/UML Klassendiagramm.png",
-            previewSrc: "assets/projects/kuka-external-control/UML Klassendiagramm.png",
+            previewSrc: "assets/projects/kuka-external-control/UML KappaConnect.png",
             alt: "UML class diagram of the KUKA communication library"
-          }
-        ],
-        tags: ["KUKA Robot", "Robot Cell", "System Analysis"]
-      },
-      {
-        icon: "02",
-        title: "Communication",
-        paragraphs: [
-          "The communication between PC and robot was structured to transfer motion commands and status information reliably."
-        ],
-        images: [
+          },
           {
             src: "assets/projects/kuka-external-control/Kommunikationsdiagramm.png",
-            previewSrc: "assets/projects/kuka-external-control/Kommunikationsdiagramm.png",
+            previewSrc: "assets/projects/kuka-external-control/KommunikationsdiagrammAusschnitt.png",
             alt: "Communication diagram between PC, Kappa K and KUKA robot"
           }
         ],
-        tags: ["KRL", "KUKA Interface", "Data Communication"]
+        tags: ["KRL", "C#", "TCP/IP"]
+      },
+      {
+        icon: "02",
+        title: "Software GUI",
+        paragraphs: [
+          "Based on the developed communication library, a custom user interface was created for controlling and monitoring the robot. The application made it possible to start programs, transfer variables and display status information in real time.",
+          "The software served as the central interface between user and robot system and simplified testing, parameterization and commissioning."
+        ],
+        images: [
+          {
+            src: "assets/projects/kuka-external-control/MatlabApp.png",
+            previewSrc: "assets/projects/kuka-external-control/MatlabApp_Preview.png",
+            alt: "MATLAB GUI for robot control"
+          }
+        ],
+        tags: ["MATLAB"]
       },
       {
         icon: "03",
-        title: "Software GUI",
+        title: "Base Calibration Workflow",
         paragraphs: [
-          "A custom interface was developed for controlling, monitoring and evaluating robot motion.",
-          "The GUI connected path planning, parameters and practical test operation."
+          "For measuring changing modular tables, an extended 6-point method was developed. Compared to the common 3-point measurement, the additional information allows a more robust determination of the coordinate system and reduces the influence of individual measurement errors.",
+          "The measurement process was integrated into a dedicated software workflow and could be used directly for path planning and robot control."
         ],
         images: [
           {
-            src: "assets/projects/kuka-external-control/UML Klassendiagramm.png",
-            previewSrc: "assets/projects/kuka-external-control/UML Klassendiagramm.png",
-            alt: "C# software library structure"
-          }
-        ],
-        tags: ["C#", "Visual Studio", "GUI", "Path Parameters"]
-      },
-      {
-        icon: "04",
-        title: "Testing and Validation",
-        paragraphs: [
-          "The developed workflows were tested on the real system and improved step by step.",
-          "The focus was on reproducible motions, safe test procedures and evaluation of the control logic."
-        ],
-        images: [
+            src: "assets/projects/kuka-external-control/RobotEinmessen.png",
+            previewSrc: "assets/projects/kuka-external-control/RobotEinmessen.png",
+            alt: "Robot calibration setup with dial gauge model"
+          },
           {
-            src: "assets/projects/kuka-external-control/Kommunikationsdiagramm.png",
-            previewSrc: "assets/projects/kuka-external-control/Kommunikationsdiagramm.png",
-            alt: "External robot control communication workflow"
+            src: "assets/projects/kuka-external-control/WorkflowEinmessen.png",
+            previewSrc: "assets/projects/kuka-external-control/WorkflowEinmessen.png",
+            alt: "Workflow for calibrating the robot base"
+          },
+          {
+            src: "assets/projects/kuka-external-control/MesspunkteModultisch.png",
+            previewSrc: "assets/projects/kuka-external-control/MesspunkteModultisch_Preview.png",
+            alt: "Measurement surfaces and points on the modular table"
+          },
+          {
+            src: "assets/projects/kuka-external-control/KoordinatenModultisch.png",
+            previewSrc: "assets/projects/kuka-external-control/KoordinatenModultisch.png",
+            alt: "Modular table with calibrated coordinate system"
           }
         ],
-        tags: ["MATLAB", "Robot Control", "Validation", "Testing"]
+        tags: ["KRL"]
       }
     ],
     galleryImages: [
-      "assets/projects/kuka-external-control/gallery-01.jpg",
-      "assets/projects/kuka-external-control/gallery-02.jpg",
-      "assets/projects/kuka-external-control/gallery-03.jpg"
+      "assets/projects/kuka-external-control/Kalibrierung Druckbett.png",
+      "assets/projects/kuka-external-control/Mathematisch Bestimmung.png",
+      "assets/projects/kuka-external-control/Ergebnissse Workflow.png"
     ]
   }
 };
 
 window.projectDetailContent = kukaExternalControlContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[kukaExternalControlContent.de.slug] = kukaExternalControlContent;

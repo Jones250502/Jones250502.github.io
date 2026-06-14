@@ -44,3 +44,5 @@ const parallelScaraContent = {
 };
 
 window.projectDetailContent = parallelScaraContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[parallelScaraContent.de.slug] = parallelScaraContent;

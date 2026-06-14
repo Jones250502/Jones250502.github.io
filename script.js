@@ -191,6 +191,32 @@ function getTimelineImages(item) {
     .filter((image) => image.src);
 }
 
+function getProjectSlugFromHref(href) {
+  return href
+    .replace(/^projects\//, "")
+    .replace(/\.html$/, "");
+}
+
+function getProjectCardFromDetail(project, content) {
+  const slug = getProjectSlugFromHref(project.href);
+  const registeredProject = window.projectContentRegistry?.[slug]?.[currentLanguage];
+  const href = project.href.startsWith("projects/") ? project.href : `projects/${project.href}`;
+
+  if (!registeredProject) {
+    return project;
+  }
+
+  return {
+    title: registeredProject.title,
+    category: registeredProject.category,
+    cover: registeredProject.cover,
+    description: registeredProject.subtitle,
+    technologies: registeredProject.tools || project.technologies || [],
+    linkLabel: `${content.projects.detailLabel}: ${registeredProject.title}`,
+    href
+  };
+}
+
 function renderProjects(content) {
   const container = document.querySelector("[data-project-list]");
   if (!container) {
@@ -198,6 +224,7 @@ function renderProjects(content) {
   }
 
   container.innerHTML = content.projects.cards
+    .map((project) => getProjectCardFromDetail(project, content))
     .map((project) => `
       <article class="project-card reveal">
         <a class="project-cover-link" href="${project.href}" aria-label="${project.linkLabel}">

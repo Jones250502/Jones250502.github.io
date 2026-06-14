@@ -44,3 +44,5 @@ const robotPlanningRlContent = {
 };
 
 window.projectDetailContent = robotPlanningRlContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[robotPlanningRlContent.de.slug] = robotPlanningRlContent;

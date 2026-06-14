@@ -44,3 +44,5 @@ const tactileSkinContent = {
 };
 
 window.projectDetailContent = tactileSkinContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[tactileSkinContent.de.slug] = tactileSkinContent;

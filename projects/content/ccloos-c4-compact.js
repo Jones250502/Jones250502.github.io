@@ -44,3 +44,5 @@ const cloosC4CompactContent = {
 };
 
 window.projectDetailContent = cloosC4CompactContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[cloosC4CompactContent.de.slug] = cloosC4CompactContent;

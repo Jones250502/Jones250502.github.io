@@ -44,3 +44,5 @@ const moveoRobotContent = {
 };
 
 window.projectDetailContent = moveoRobotContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[moveoRobotContent.de.slug] = moveoRobotContent;

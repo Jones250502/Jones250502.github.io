@@ -44,3 +44,5 @@ const pathPlanningContent = {
 };
 
 window.projectDetailContent = pathPlanningContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[pathPlanningContent.de.slug] = pathPlanningContent;

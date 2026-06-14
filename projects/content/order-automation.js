@@ -44,3 +44,5 @@ const orderAutomationContent = {
 };
 
 window.projectDetailContent = orderAutomationContent;
+window.projectContentRegistry = window.projectContentRegistry || {};
+window.projectContentRegistry[orderAutomationContent.de.slug] = orderAutomationContent;
