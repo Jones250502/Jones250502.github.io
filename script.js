@@ -176,19 +176,52 @@ function getTimelineImages(item) {
     .map((image) => {
       if (typeof image === "string") {
         return {
+          type: "image",
           src: image,
           previewSrc: image,
           alt: item.title
         };
       }
 
+      const src = image.src || "";
+      const inferredType = /\.(mp4|webm|ogg)$/i.test(src) ? "video" : "image";
+
       return {
-        src: image.src,
-        previewSrc: image.previewSrc || image.src,
+        type: image.type || inferredType,
+        src,
+        previewSrc: image.previewSrc || image.poster || src,
         alt: image.alt || item.title
       };
     })
     .filter((image) => image.src);
+}
+
+function renderTimelineMediaPreview(image) {
+  if (image.type === "video") {
+    const poster = image.previewSrc && image.previewSrc !== image.src ? ` poster="../${image.previewSrc}"` : "";
+    return `<video src="../${image.src}"${poster} autoplay muted loop playsinline preload="metadata" aria-label="${image.alt}"></video>`;
+  }
+
+  return `<img src="../${image.previewSrc}" alt="${image.alt}" loading="lazy" onerror="this.hidden=true;">`;
+}
+
+function getGalleryMediaItem(media, fallbackAlt) {
+  if (typeof media === "string") {
+    return {
+      type: /\.(mp4|webm|ogg)$/i.test(media) ? "video" : "image",
+      src: media,
+      previewSrc: media,
+      alt: fallbackAlt
+    };
+  }
+
+  const src = media.src || "";
+  return {
+    type: media.type || (/\.(mp4|webm|ogg)$/i.test(src) ? "video" : "image"),
+    src,
+    previewSrc: media.previewSrc || media.poster || src,
+    alt: media.alt || fallbackAlt
+  };
 }
 
 function getProjectSlugFromHref(href) {
@@ -579,8 +612,8 @@ function renderProjectPage() {
           <div class="project-timeline-media" data-media-label="${getProjectInitials(item.title)}" data-timeline-media>
             <div class="timeline-image-grid ${gridClass}">
               ${images.map((image, imageIndex) => `
-                <button class="timeline-image-cell" type="button" data-lightbox-open data-full-src="../${image.src}" data-image-index="${imageIndex}" aria-label="${image.alt}">
-                  <img src="../${image.previewSrc}" alt="${image.alt}" loading="lazy" onerror="this.hidden=true;">
+                <button class="timeline-image-cell" type="button" data-lightbox-open data-full-src="../${image.src}" data-media-type="${image.type}" data-image-index="${imageIndex}" aria-label="${image.alt}">
+                  ${renderTimelineMediaPreview(image)}
                   <span class="sr-only" data-lightbox-alt>${image.alt}</span>
                 </button>
               `).join("")}
@@ -631,11 +664,14 @@ function renderProjectPage() {
   const gallery = document.querySelector("[data-project-gallery]");
   if (gallery) {
     gallery.innerHTML = project.galleryImages
-      .map((image, imageIndex) => `
-        <button class="gallery-item" type="button" data-gallery-item data-media-label="${getProjectInitials(project.title)} ${imageIndex + 1}" aria-label="${project.title} ${labels.gallery} ${imageIndex + 1}">
-          <img src="../${image}" alt="" loading="lazy" onerror="this.hidden=true;">
-        </button>
-      `)
+      .map((media, imageIndex) => {
+        const galleryMedia = getGalleryMediaItem(media, `${project.title} ${labels.gallery} ${imageIndex + 1}`);
+        return `
+          <button class="gallery-item" type="button" data-gallery-item data-media-label="${getProjectInitials(project.title)} ${imageIndex + 1}" aria-label="${galleryMedia.alt}">
+            ${renderTimelineMediaPreview(galleryMedia)}
+          </button>
+        `;
+      })
       .join("");
   }
 }
@@ -655,6 +691,7 @@ function getTimelineLightboxImages(media) {
 
   return Array.from(media.querySelectorAll("[data-lightbox-open]"))
     .map((button) => ({
+      type: button.dataset.mediaType || "image",
       src: button.dataset.fullSrc,
       alt: button.querySelector("[data-lightbox-alt]")?.textContent || button.getAttribute("aria-label") || ""
     }))
@@ -676,6 +713,7 @@ function ensureProjectLightbox() {
       <button class="project-lightbox-close" type="button" data-lightbox-close aria-label="Close image">×</button>
       <button class="project-lightbox-nav is-prev" type="button" data-lightbox-prev aria-label="Previous image">‹</button>
       <img src="" alt="">
+      <video src="" controls playsinline></video>
       <button class="project-lightbox-nav is-next" type="button" data-lightbox-next aria-label="Next image">›</button>
       <div class="project-lightbox-caption">
         <span class="project-lightbox-description"></span>
@@ -690,13 +728,24 @@ function ensureProjectLightbox() {
 function updateProjectLightbox() {
   const lightbox = ensureProjectLightbox();
   const image = lightbox.querySelector("img");
+  const video = lightbox.querySelector("video");
   const count = lightbox.querySelector(".project-lightbox-count");
   const description = lightbox.querySelector(".project-lightbox-description");
   const currentImage = projectLightboxState.images[projectLightboxState.index] || {};
   const hasMultipleImages = projectLightboxState.images.length > 1;
+  const isVideo = currentImage.type === "video";
 
-  image.src = currentImage.src || "";
+  image.hidden = isVideo;
+  video.hidden = !isVideo;
+  image.src = isVideo ? "" : currentImage.src || "";
   image.alt = currentImage.alt || "";
+  video.src = isVideo ? currentImage.src || "" : "";
+  video.muted = true;
+  if (isVideo) {
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+  }
   description.textContent = currentImage.alt || "";
   count.textContent = hasMultipleImages ? `${projectLightboxState.index + 1} / ${projectLightboxState.images.length}` : "";
 
@@ -729,6 +778,7 @@ function closeProjectLightbox() {
 
   lightbox.classList.remove("is-open");
   document.body.classList.remove("lightbox-open");
+  lightbox.querySelector("video")?.pause();
 }
 
 function moveProjectLightbox(direction) {
