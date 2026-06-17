@@ -16,6 +16,50 @@ function isProjectPage() {
   return Boolean(projectPage);
 }
 
+function getStoredLanguage() {
+  try {
+    return localStorage.getItem("portfolioLanguage");
+  } catch {
+    return "";
+  }
+}
+
+function storeLanguage(lang) {
+  try {
+    localStorage.setItem("portfolioLanguage", lang);
+  } catch {
+    // Ignore storage restrictions, e.g. local file previews with blocked storage.
+  }
+}
+
+function getInitialLanguage() {
+  const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+  const storedLanguage = getStoredLanguage();
+
+  if (urlLanguage && window.siteContent[urlLanguage]) {
+    return urlLanguage;
+  }
+
+  if (storedLanguage && window.siteContent[storedLanguage]) {
+    return storedLanguage;
+  }
+
+  return "de";
+}
+
+function withLanguageParam(href) {
+  if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("http")) {
+    return href;
+  }
+
+  const [hrefWithoutHash, hash] = href.split("#");
+  const [path, query = ""] = hrefWithoutHash.split("?");
+  const params = new URLSearchParams(query);
+  params.set("lang", currentLanguage);
+
+  return `${path}?${params.toString()}${hash ? `#${hash}` : ""}`;
+}
+
 function getContentValue(path, content = window.siteContent[currentLanguage]) {
   return path.split(".").reduce((value, key) => (value ? value[key] : undefined), content);
 }
@@ -59,7 +103,10 @@ function renderNavigation(content) {
   }
 
   navLinks.innerHTML = content.nav.items
-    .map((item) => `<li><a href="${isProjectPage() ? `../index.html${item.href}` : item.href}">${item.label}</a></li>`)
+    .map((item) => {
+      const href = isProjectPage() ? withLanguageParam(`../index.html${item.href}`) : item.href;
+      return `<li><a href="${href}">${item.label}</a></li>`;
+    })
     .join("");
 }
 
@@ -258,9 +305,12 @@ function renderProjects(content) {
 
   container.innerHTML = content.projects.cards
     .map((project) => getProjectCardFromDetail(project, content))
-    .map((project) => `
-      <article class="project-card reveal">
-        <a class="project-cover-link" href="${project.href}" aria-label="${project.linkLabel}">
+    .map((project) => {
+      const projectHref = withLanguageParam(project.href);
+
+      return `
+        <article class="project-card reveal">
+        <a class="project-cover-link" href="${projectHref}" aria-label="${project.linkLabel}">
           <div class="project-media" data-media-label="${getProjectInitials(project.title)}">
             <img src="${project.cover}" alt="" loading="lazy" onerror="this.hidden=true;">
             <span class="project-cover-cta">${content.projects.detailLabel}</span>
@@ -286,10 +336,11 @@ function renderProjects(content) {
               `;
             }).join("")}
           </div>
-          <a class="text-link" href="${project.href}" aria-label="${project.linkLabel}">${content.projects.detailLabel}</a>
+          <a class="text-link" href="${projectHref}" aria-label="${project.linkLabel}">${content.projects.detailLabel}</a>
         </div>
       </article>
-    `)
+    `;
+    })
     .join("");
 }
 
@@ -541,7 +592,7 @@ function renderProjectPage() {
 
   document.querySelectorAll("[data-back-to-portfolio]").forEach((link) => {
     link.textContent = labels.backToPortfolio;
-    link.href = "../index.html#projects";
+    link.href = withLanguageParam("../index.html#projects");
   });
 
   setText("[data-project-kicker]", project.category);
@@ -646,15 +697,15 @@ function renderProjectPage() {
   const projectNavigation = document.querySelector("[data-project-navigation]");
   if (projectNavigation) {
     projectNavigation.innerHTML = `
-      <a class="project-nav-link" href="${previousProject.href}">
+      <a class="project-nav-link" href="${withLanguageParam(previousProject.href)}">
         <span>${labels.previous}</span>
         <strong>${previousProject.title}</strong>
       </a>
-      <a class="project-nav-link project-nav-home" href="../index.html#projects">
+      <a class="project-nav-link project-nav-home" href="${withLanguageParam("../index.html#projects")}">
         <span>${labels.backToPortfolio}</span>
         <strong>${window.siteContent[currentLanguage].projects.heading}</strong>
       </a>
-      <a class="project-nav-link is-next" href="${nextProject.href}">
+      <a class="project-nav-link is-next" href="${withLanguageParam(nextProject.href)}">
         <span>${labels.next}</span>
         <strong>${nextProject.title}</strong>
       </a>
@@ -846,6 +897,7 @@ function setLanguage(lang) {
   }
 
   currentLanguage = lang;
+  storeLanguage(currentLanguage);
   const content = window.siteContent[currentLanguage];
 
   applyStaticText(content);
@@ -888,4 +940,4 @@ if (languageToggle) {
 
 window.addEventListener("scroll", updateHeaderState, { passive: true });
 window.setLanguage = setLanguage;
-setLanguage(currentLanguage);
+setLanguage(getInitialLanguage());
