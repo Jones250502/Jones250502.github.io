@@ -37,22 +37,55 @@ const cocktailbarContent = {
     slug: "cocktailbar",
     href: "cocktailbar.html",
     title: "Cocktail Bar",
-    subtitle: "Planning, build and technical implementation",
+    subtitle: "Modular custom-built bar with CAD design and sheet metal fabrication",
     category: "Personal Project",
     type: "Personal project",
-    period: "Placeholder period",
+    period: "08/2024",
     status: "Completed",
-    cover: "assets/projects/cocktailbar/cover.jpg",
-    summary: "Personal bar project with planning, construction and technical implementation of an individual cocktail bar, focusing on design, manufacturing and clean detail integration.",
+    cover: "assets/projects/cocktailbar/Bar_2_F_Isobild.jpg",
+    summary: "A personal design and manufacturing project for a modular cocktail bar. The bar was designed in Fusion 360, built from laser-cut and powder-coated sheet metal components, and equipped with storage space, drawers, a speed rack and a practical work surface.",
     focus: ["Fusion 360", "Design", "DIY Build", "Hardware"],
-    tools: ["Fusion 360", "Design", "Hardware", "Prototyping"],
+    tools: ["Fusion 360", "TruTops Boost", "TruTops"],
     timeline: [
-      { icon: "01", title: "Idea", paragraphs: ["Developing a functional design that combines use, storage and appearance."], images: ["assets/projects/cocktailbar/timeline-01.jpg"], tags: ["Design", "Concept", "Requirements"] },
-      { icon: "02", title: "Design", paragraphs: ["Planning the structure and details with manufacturability and everyday use in mind."], images: ["assets/projects/cocktailbar/timeline-02.jpg"], tags: ["Fusion 360", "CAD", "Design"] },
-      { icon: "03", title: "Manufacturing", paragraphs: ["Cutting, assembling and adapting individual parts."], images: ["assets/projects/cocktailbar/timeline-03.jpg"], tags: ["Hardware", "DIY Build", "Manufacturing"] },
-      { icon: "04", title: "Finished Bar", paragraphs: ["Final build with focus on clean execution and practical use."], images: ["assets/projects/cocktailbar/timeline-04.jpg"], tags: ["Finish", "Prototyping", "Build"] }
+      {
+        icon: "01",
+        title: "CAD Design",
+        paragraphs: ["Planning and designing a modular cocktail bar in Fusion 360. The bar consists of flexibly combinable 60 x 60 cm modules and can be assembled with or without a counter depending on the available space. Large front panels, internal pull-outs and folded drawer handles improve cleaning, storage and everyday usability."],
+        images: ["assets/projects/cocktailbar/BarCAD.png", "assets/projects/cocktailbar/Bar_Render_Iso.png", "assets/projects/cocktailbar/Bar_Render_Top.png", "assets/projects/cocktailbar/Bar_Render_Front.png"],
+        tags: ["Fusion 360"]
+      },
+      {
+        icon: "02",
+        title: "Manufacturing",
+        paragraphs: ["The metal components were manufactured entirely in-house from 1.5 mm sheet steel. The parts were laser-cut, fitted with M6 weld nuts using spot welding and then bent, as many areas would no longer have been accessible after forming. The folded U-profiles were subsequently welded into 40 x 40 mm tubes with internal weld nuts for the frames. Finally, the assemblies were ground and powder-coated in RAL 9010 textured finish."],
+        images: ["assets/projects/cocktailbar/Bar_Lasern_close.jpg", "assets/projects/cocktailbar/Bar_Rohlinge.jpg", "assets/projects/cocktailbar/Bar_Beschichtet.jpg", "assets/projects/cocktailbar/Bar_Skelett.jpg"],
+        tags: ["TruTops", "TruTops Boost"]
+      },
+      {
+        icon: "03",
+        title: "Assembly and Cladding",
+        paragraphs: ["Assembly of the bar with drawers, pull-outs, a speed rack and a modular work surface made from 1 mm stainless steel. The work surface consists of individual hexagonal elements that can be rotated to create raised sections or compartments for ice, bar equipment and accessories. For visual reasons, the exterior was clad with planed and sanded wooden slats that do not carry structural loads. The goal was a compact, easy-to-clean and practical bar with quickly accessible storage."],
+        images: ["assets/projects/cocktailbar/Bar_2_F_innenAuszug.jpg", "assets/projects/cocktailbar/Bar_2_F_schublade.jpg", "assets/projects/cocktailbar/Bar_2_F_Speedrackseite.jpg", "assets/projects/cocktailbar/Bar_2_F_Arbeitsflaeche.jpg"],
+        tags: []
+      },
+      {
+        icon: "04",
+        title: "Final Cocktail Bar",
+        paragraphs: ["Completion of the second bar as a modularly improved version of the first custom build. The new design is easier to transport and assemble and can be adapted more flexibly to different spaces. Integrated drawers eliminate the need for an additional shelf, while the space beneath the work surface is used much more effectively. The speed rack was also improved both functionally and visually. The first bar can be seen in the gallery for comparison."],
+        images: ["assets/projects/cocktailbar/Bar_2_F_Isobild.jpg", "assets/projects/cocktailbar/Bar_2_F_Draufsicht.jpg"],
+        tags: []
+      }
     ],
-    galleryImages: ["assets/projects/cocktailbar/gallery-01.jpg", "assets/projects/cocktailbar/gallery-02.jpg", "assets/projects/cocktailbar/gallery-03.jpg"]
+    galleryImages: [
+      "assets/projects/cocktailbar/Bar_erster_Aufbau.jpg",
+      "assets/projects/cocktailbar/Bar_erster_Aufbau_Tresen.jpg",
+      "assets/projects/cocktailbar/Bar_Lasern.jpg",
+      "assets/projects/cocktailbar/Bar_Lasern_aktive.jpg",
+      "assets/projects/cocktailbar/Bar_2_F_Isobild.jpg",
+      "assets/projects/cocktailbar/Bar_1_Front.jpg",
+      "assets/projects/cocktailbar/Bar_1_hinten.jpg",
+      "assets/projects/cocktailbar/Bar_1_Seite.jpg"
+    ]
   }
 };
 
