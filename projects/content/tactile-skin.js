@@ -19,7 +19,7 @@ const tactileSkinContent = {
       { icon: "03", title: "Versuchsaufbau", paragraphs: ["Im Prüfstand wurden die Widerstandsänderungen von zwei integrierten DMS Streifen unter definierter Krafteinleitung gemessen. Die Proben mit unterschiedlichen Shore Härten wurden bei 0°, 30°, 45° und 60° getestet, um Normal und Scherkraftanteile gezielt zu variieren."], images: ["assets/projects/tactile-skin/Prufstand.png","assets/projects/tactile-skin/SkinForceVis.png"], tags: ["C++"] },
       { icon: "04", title: "Auswertung", paragraphs: ["Auswertung der DMS Signale für unterschiedliche Shore Härten und Belastungswinkel. Die Ergebnisse zeigen, dass die sehr weiche Flex Probe mit Shore 0050 besonders anfällig für Stick Slip Effekte war, während GelbStrich mit Shore A20 ein stabileres Messverhalten zeigte."], images: ["assets/projects/tactile-skin/Asuwerteflexgrad.png","assets/projects/tactile-skin/Asuwertegelb.png"], tags: ["MATLAB"] }
     ],
-    galleryImages: ["assets/projects/tactile-skin/Ubersichtalles.png", "assets/projects/tactile-skin/Morpho.png", "assets/projects/tactile-skin/Mittelwertgeraden.png"]
+    galleryImages: ["assets/projects/tactile-skin/Ubersichtalles.png", "assets/projects/tactile-skin/SkinSliced.jpg" ,"assets/projects/tactile-skin/Mittelwertgeraden.png"]
   },
   en: {
     slug: "tactile-skin",
@@ -41,7 +41,7 @@ const tactileSkinContent = {
       { icon: "03", title: "Test Setup", paragraphs: ["In the test rig, resistance changes of two integrated strain gauge strips were measured under defined force application. Samples with different Shore hardness values were tested at 0°, 30°, 45° and 60° in order to vary normal and shear force components in a targeted way."], images: ["assets/projects/tactile-skin/Prufstand.png","assets/projects/tactile-skin/SkinForceVis.png"], tags: ["C++"] },
       { icon: "04", title: "Evaluation", paragraphs: ["Evaluation of the strain gauge signals for different Shore hardness values and loading angles. The results show that the very soft Flex sample with Shore 0050 was particularly susceptible to stick-slip effects, while GelbStrich with Shore A20 showed more stable measurement behavior."], images: ["assets/projects/tactile-skin/Asuwerteflexgrad.png","assets/projects/tactile-skin/Asuwertegelb.png"], tags: ["MATLAB"] }
     ],
-    galleryImages: ["assets/projects/tactile-skin/Ubersichtalles.png", "assets/projects/tactile-skin/Morpho.png", "assets/projects/tactile-skin/Mittelwertgeraden.png"]
+    galleryImages: ["assets/projects/tactile-skin/Ubersichtalles.png", "assets/projects/tactile-skin/Morpho.png", "assets/projects/tactile-skin/SkinSliced.jpg" , "assets/projects/tactile-skin/Mittelwertgeraden.png"]
   }
 };
 

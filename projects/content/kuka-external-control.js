@@ -87,7 +87,8 @@ const kukaExternalControlContent = {
     galleryImages: [
       "assets/projects/kuka-external-control/Kalibrierung Druckbett.png",
       "assets/projects/kuka-external-control/Mathematisch Bestimmung.png",
-      "assets/projects/kuka-external-control/Ergebnissse Workflow.png"
+      "assets/projects/kuka-external-control/Ergebnissse Workflow.png",
+      "assets/projects/kuka-external-control/betteinmessen.jpg"
     ]
   },
   en: {
@@ -177,7 +178,8 @@ const kukaExternalControlContent = {
     galleryImages: [
       "assets/projects/kuka-external-control/Kalibrierung Druckbett.png",
       "assets/projects/kuka-external-control/Mathematisch Bestimmung.png",
-      "assets/projects/kuka-external-control/Ergebnissse Workflow.png"
+      "assets/projects/kuka-external-control/Ergebnissse Workflow.png",
+      "assets/projects/kuka-external-control/betteinmessen.jpg"
     ]
   }
 };
