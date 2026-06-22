@@ -559,6 +559,14 @@ function getProjectToolLogo(toolName) {
     return "assets/logos/KUKA-logo.svg";
   }
 
+  if (normalized.includes("trutops boost")) {
+    return "assets/logos/Logo_Boost.svg";
+  }
+
+  if (normalized.includes("trutops")) {
+    return "assets/logos/Logo_Trumpf.svg";
+  }
+
   if (normalized.includes("matlab")) {
     return "assets/logos/Matlab_Logo.png";
   }
