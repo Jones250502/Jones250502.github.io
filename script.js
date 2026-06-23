@@ -311,8 +311,8 @@ function renderProjects(content) {
       return `
         <article class="project-card reveal">
         <a class="project-cover-link" href="${projectHref}" aria-label="${project.linkLabel}">
-          <div class="project-media" data-media-label="${getProjectInitials(project.title)}">
-            <img src="${project.cover}" alt="" loading="lazy" onerror="this.hidden=true;">
+          <div class="project-media has-media" data-media-label="${getProjectInitials(project.title)}">
+            <img src="${project.cover}" alt="" loading="lazy" onerror="this.hidden=true; this.parentElement.classList.remove('has-media');">
             <span class="project-cover-cta">${content.projects.detailLabel}</span>
           </div>
         </a>
@@ -637,8 +637,9 @@ function renderProjectPage() {
 
   const heroMedia = document.querySelector("[data-project-hero-media]");
   if (heroMedia) {
+    heroMedia.classList.add("has-media");
     heroMedia.dataset.mediaLabel = getProjectInitials(project.title);
-    heroMedia.innerHTML = `<img src="../${project.cover}" alt="${project.title}" loading="eager" onerror="this.hidden=true;">`;
+    heroMedia.innerHTML = `<img src="../${project.cover}" alt="${project.title}" loading="eager" onerror="this.hidden=true; this.parentElement.classList.remove('has-media');">`;
   }
 
   const toolList = document.querySelector("[data-project-tools]");
@@ -668,7 +669,7 @@ function renderProjectPage() {
 
         return `
         <article class="project-timeline-item reveal ${itemIndex % 2 ? "is-reversed" : ""}">
-          <div class="project-timeline-media" data-media-label="${getProjectInitials(item.title)}" data-timeline-media>
+          <div class="project-timeline-media has-media" data-media-label="${getProjectInitials(item.title)}" data-timeline-media>
             <div class="timeline-image-grid ${gridClass}">
               ${images.map((image, imageIndex) => `
                 <button class="timeline-image-cell" type="button" data-lightbox-open data-full-src="../${image.src}" data-media-type="${image.type}" data-image-index="${imageIndex}" aria-label="${image.alt}">
@@ -726,7 +727,7 @@ function renderProjectPage() {
       .map((media, imageIndex) => {
         const galleryMedia = getGalleryMediaItem(media, `${project.title} ${labels.gallery} ${imageIndex + 1}`);
         return `
-          <button class="gallery-item" type="button" data-gallery-item data-media-label="${getProjectInitials(project.title)} ${imageIndex + 1}" aria-label="${galleryMedia.alt}">
+          <button class="gallery-item has-media" type="button" data-gallery-item data-media-label="${getProjectInitials(project.title)} ${imageIndex + 1}" aria-label="${galleryMedia.alt}">
             ${renderTimelineMediaPreview(galleryMedia)}
           </button>
         `;
